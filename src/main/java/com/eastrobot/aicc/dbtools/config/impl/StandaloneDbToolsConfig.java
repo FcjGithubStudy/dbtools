@@ -73,7 +73,7 @@ public class StandaloneDbToolsConfig implements DbToolsConfig {
                     dataSource = new HikariDataSource();
                     // 设置其他数据源配置属性(因为这个方法调用频率极低,所以连接数配置1根即可)
                     jdbcConfig.setMaximumPoolSize(1);//最大连接数(Integer)
-                    jdbcConfig.setMinimumIdle(1);//最小空闲连接数(Integer)
+                    jdbcConfig.setMinimumIdle(0);//最小空闲连接数(Integer)
                     HikariDataSource baseDataSource = new HikariDataSource(jdbcConfig);
                     this.dataSource = baseDataSource;
                 }

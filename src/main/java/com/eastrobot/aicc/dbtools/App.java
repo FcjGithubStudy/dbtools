@@ -41,6 +41,9 @@ public class App {
             }
         } catch (IOException e) {
             log.error("", e);
+        } finally {
+            // 方法结束主动销毁数据源连接池
+            dbToolsConfig.destroyDataSource(dbToolsConfig.getDataSource());
         }
     }
 }

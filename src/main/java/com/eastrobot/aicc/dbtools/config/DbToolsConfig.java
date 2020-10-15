@@ -29,12 +29,19 @@ public interface DbToolsConfig {
     }
 
     /**
+     * 获取数据源连接池的方法
+     */
+    default DataSource getDataSource() {
+        return getJdbcTemplate().getDataSource();
+    }
+
+    /**
      * 销毁DataSource的方法(需要开发者自己实现)
-     * 解释:jdbcTemplate的创建,需要一个dataSource,【多租户场景】,每个租户都要生成其对应的dataSource,那么内存中dataSource可能会很多,如果不手动销毁,可能会导致内存溢出,
-     * 在校验器每次校验结束的时候，会调用该方法,自动传入jdbcTemplate.getDataSource()方法返回的dataSource,做一些强制销毁处理，所以如果不放心,可以实现这个方法来强制销毁
+     * 解释:jdbcTemplate的创建,需要一个dataSource,【多租户场景】,每个租户都要生成其对应的dataSource,那么内存中dataSource可能会很多,
+     * 所以如果不放心,怕内存溢出,可以实现这个方法，并根据实际情况再合适的地方调用dbToolsConfig.destroyDataSource()来强制销毁数据库连接池
      * 参考:我使用的是HikariDataSource,其有个close方法,可以手动销毁dataSource实例.
      *
-     * @param dataSource
+     * @param dataSource 需要销毁的数据源
      */
     default void destroyDataSource(DataSource dataSource) {
     }

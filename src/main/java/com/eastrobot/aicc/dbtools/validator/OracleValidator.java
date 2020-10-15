@@ -179,120 +179,116 @@ public class OracleValidator {
         }
         log.info("<====== 表结构校验开始 ======>");
         JdbcTemplate jdbcTemplate = dbToolsConfig.getJdbcTemplate();
-        try {
-            for (String tableName : tableDDLMap.keySet()) {
-                // 一、判断目标表是否存在
-                boolean isTableExist = true;
-                try {
-                    jdbcTemplate.execute("select 1 from " + DB_ESCAPE_CHARACTER + tableName + DB_ESCAPE_CHARACTER + " where 1 = 2");
-                } catch (BadSqlGrammarException e) {
-                    isTableExist = false;
-                }
-                if (isTableExist) {
-                    // 1.表存在,则校验表中字段完整性
-                    SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet("select * from " + DB_ESCAPE_CHARACTER + tableName + DB_ESCAPE_CHARACTER + " where 1 = 2");
-                    SqlRowSetMetaData metaData = sqlRowSet.getMetaData();
-                    Map<String, String> dbColumnNameMap = new HashMap<>(16);
-                    for (int i = 1; i <= metaData.getColumnCount(); i++) {
-                        // 备忘:metaData的getColumnLabel返回【字段别名】,getColumnName方法则返回【原始字段名】,当联表查询时,如果两个表字段有重复,getColumnName底层的map会覆盖,导致问题
-                        // 所以推荐使用getColumnLabel,,养成习惯,以保证用代码执行的效果和用sql直接操作数据库结果一致,方便排查
-                        String dbColumnName = metaData.getColumnLabel(i).toUpperCase();
-                        // -- 使用map保存,提高后续比对效率
-                        dbColumnNameMap.put(dbColumnName, dbColumnName);
-                    }
-                    // --(1)开始比对字段完整性,动态更新表结构
-                    Map<String, String> columnMap = columnDDLMaps.get(tableName);
-                    Map<String, String> commentMap = commentDDLMaps.get(tableName);
-                    for (String columnName : columnMap.keySet()) {
-                        if (null == dbColumnNameMap.get(columnName)) {
-                            // -- (2)如果数据库中该表不存在该字段,则新增该字段
-                            String columnAddSql = columnMap.get(columnName);
-                            jdbcTemplate.execute(columnAddSql);
-                            log.info(" >>>>>>>>>> 表【" + tableName + "】，新增字段 【" + columnName + "】");
-                            // -- (3)如果该字段有相匹配的注释语句,则执行
-                            if (commentMap != null && StringUtils.isNotBlank(commentMap.get(columnName))) {
-                                String commentAddSql = commentMap.get(columnName);
-                                jdbcTemplate.execute(commentAddSql);
-                                log.info(" >>>>>>>>>> 表【" + tableName + "】，更新字段 【" + columnName + "】，添加注释 [" + commentAddSql + "]");
-                            }
-                        }
-                    }
-                    // --(2)添加索引
-                    // 备注：索引与字段有些不同，好像不能直接通过metaData获取到，如果通过查询的方式，每个数据库的查询索引语法又不同，比较麻烦，于是这里我们采取的策略是【直接重复创建】，创建索引语法是通用的，这样已有的会抛异常，没有的则自动添加
-                    Map<String, String> indexDDLMap = indexDDLMaps.get(tableName);
-                    if (indexDDLMap != null) {
-                        for (Map.Entry<String, String> entry : indexDDLMap.entrySet()) {
-                            String indexName = entry.getKey();
-                            String indexDDL = entry.getValue();
-                            try {
-                                jdbcTemplate.execute(indexDDL);
-                                log.info(" >>>>>>>>>> 检测到【" + tableName + "】表缺少名为【" + indexName + "] 的非主键索引，已完成新建");
-                            } catch (Exception e) {
-                                // 捕获到异常说明已经存在该索引，此处什么也不做
-                            }
-                        }
-                    }
-
-                    // 【优化机制1】表结构字段已完整,判断表中是否存在数据,如果表中数据为空,并且该表初始是有内置数据的,则重新插入内置数据(方便清空表后仍然能够重新插入内置数据,而无需删除表操作,毕竟删除表操作还是比较敏感的)
-                    Integer currentDataSize = jdbcTemplate.queryForObject("select count(1) from " + DB_ESCAPE_CHARACTER + tableName + DB_ESCAPE_CHARACTER, Integer.class);
-                    // -- 插入内置数据
-                    List<String> insertSqls = insertDataDMLMap.get(tableName);
-                    if (currentDataSize == 0 && null != insertSqls && insertSqls.size() > 0) {
-                        int count = 0;
-                        for (String insertSql : insertSqls) {
-                            int rows = jdbcTemplate.update(insertSql);
-                            count = count + rows;
-                        }
-                        log.info(" >>>>>>>>>> 检测到【" + tableName + "】表数据为0条，[" + count + "] 条内置数据已被重新插入");
-                    }
-                } else {
-                    // 2.表不存在,则创建表,并插入内置数据
-                    String createTableSql = tableDDLMap.get(tableName);
-                    // -- 新建表
-                    jdbcTemplate.execute(createTableSql);
-                    // -- 新建索引
-                    Map<String, String> createIndexSqlMap = indexDDLMaps.get(tableName);
-                    int indexCount = 0;
-                    if (createIndexSqlMap != null) {
-                        for (Map.Entry<String, String> entry : createIndexSqlMap.entrySet()) {
-                            String indexDDL = entry.getValue();
-                            jdbcTemplate.execute(indexDDL);
-                            indexCount++;
-                        }
-                    }
-                    // -- 添加注释
-                    Map<String, String> commentMap = commentDDLMaps.get(tableName);
-                    if (commentMap != null && commentMap.size() > 0) {
-                        for (Map.Entry<String, String> entry : commentMap.entrySet()) {
-                            String commentAddSql = entry.getValue();
-                            jdbcTemplate.execute(commentAddSql);
-                        }
-                    }
-                    // -- 插入内置数据
-                    List<String> insertSqls = insertDataDMLMap.get(tableName);
-                    int innerDataCount = 0;
-                    if (null != insertSqls && insertSqls.size() > 0) {
-                        for (String insertSql : insertSqls) {
-                            int rows = jdbcTemplate.update(insertSql);
-                            innerDataCount = innerDataCount + rows;
-                        }
-                    }
-                    // -- 生成日志语句
-                    StringBuilder logStr = new StringBuilder(" >>>>>>>>>> 新建【" + tableName + "】表;");
-                    if (indexCount > 0) {
-                        logStr.append("【" + indexCount + "】个非主键索引被新建;");
-                    }
-                    if (innerDataCount > 0) {
-                        logStr.append("【" + innerDataCount + "】条内置数据被插入;");
-                    }
-                    log.info(logStr.toString());
-                }
+        for (String tableName : tableDDLMap.keySet()) {
+            // 一、判断目标表是否存在
+            boolean isTableExist = true;
+            try {
+                jdbcTemplate.execute("select 1 from " + DB_ESCAPE_CHARACTER + tableName + DB_ESCAPE_CHARACTER + " where 1 = 2");
+            } catch (BadSqlGrammarException e) {
+                isTableExist = false;
             }
-            // 结尾执行一些额外的扩展逻辑
-            dbToolsConfig.executeExtraSqlInTheEnd();
-        } finally {
-            dbToolsConfig.destroyDataSource(jdbcTemplate.getDataSource());
+            if (isTableExist) {
+                // 1.表存在,则校验表中字段完整性
+                SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet("select * from " + DB_ESCAPE_CHARACTER + tableName + DB_ESCAPE_CHARACTER + " where 1 = 2");
+                SqlRowSetMetaData metaData = sqlRowSet.getMetaData();
+                Map<String, String> dbColumnNameMap = new HashMap<>(16);
+                for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                    // 备忘:metaData的getColumnLabel返回【字段别名】,getColumnName方法则返回【原始字段名】,当联表查询时,如果两个表字段有重复,getColumnName底层的map会覆盖,导致问题
+                    // 所以推荐使用getColumnLabel,,养成习惯,以保证用代码执行的效果和用sql直接操作数据库结果一致,方便排查
+                    String dbColumnName = metaData.getColumnLabel(i).toUpperCase();
+                    // -- 使用map保存,提高后续比对效率
+                    dbColumnNameMap.put(dbColumnName, dbColumnName);
+                }
+                // --(1)开始比对字段完整性,动态更新表结构
+                Map<String, String> columnMap = columnDDLMaps.get(tableName);
+                Map<String, String> commentMap = commentDDLMaps.get(tableName);
+                for (String columnName : columnMap.keySet()) {
+                    if (null == dbColumnNameMap.get(columnName)) {
+                        // -- (2)如果数据库中该表不存在该字段,则新增该字段
+                        String columnAddSql = columnMap.get(columnName);
+                        jdbcTemplate.execute(columnAddSql);
+                        log.info(" >>>>>>>>>> 表【" + tableName + "】，新增字段 【" + columnName + "】");
+                        // -- (3)如果该字段有相匹配的注释语句,则执行
+                        if (commentMap != null && StringUtils.isNotBlank(commentMap.get(columnName))) {
+                            String commentAddSql = commentMap.get(columnName);
+                            jdbcTemplate.execute(commentAddSql);
+                            log.info(" >>>>>>>>>> 表【" + tableName + "】，更新字段 【" + columnName + "】，添加注释 [" + commentAddSql + "]");
+                        }
+                    }
+                }
+                // --(2)添加索引
+                // 备注：索引与字段有些不同，好像不能直接通过metaData获取到，如果通过查询的方式，每个数据库的查询索引语法又不同，比较麻烦，于是这里我们采取的策略是【直接重复创建】，创建索引语法是通用的，这样已有的会抛异常，没有的则自动添加
+                Map<String, String> indexDDLMap = indexDDLMaps.get(tableName);
+                if (indexDDLMap != null) {
+                    for (Map.Entry<String, String> entry : indexDDLMap.entrySet()) {
+                        String indexName = entry.getKey();
+                        String indexDDL = entry.getValue();
+                        try {
+                            jdbcTemplate.execute(indexDDL);
+                            log.info(" >>>>>>>>>> 检测到【" + tableName + "】表缺少名为【" + indexName + "] 的非主键索引，已完成新建");
+                        } catch (Exception e) {
+                            // 捕获到异常说明已经存在该索引，此处什么也不做
+                        }
+                    }
+                }
+
+                // 【优化机制1】表结构字段已完整,判断表中是否存在数据,如果表中数据为空,并且该表初始是有内置数据的,则重新插入内置数据(方便清空表后仍然能够重新插入内置数据,而无需删除表操作,毕竟删除表操作还是比较敏感的)
+                Integer currentDataSize = jdbcTemplate.queryForObject("select count(1) from " + DB_ESCAPE_CHARACTER + tableName + DB_ESCAPE_CHARACTER, Integer.class);
+                // -- 插入内置数据
+                List<String> insertSqls = insertDataDMLMap.get(tableName);
+                if (currentDataSize == 0 && null != insertSqls && insertSqls.size() > 0) {
+                    int count = 0;
+                    for (String insertSql : insertSqls) {
+                        int rows = jdbcTemplate.update(insertSql);
+                        count = count + rows;
+                    }
+                    log.info(" >>>>>>>>>> 检测到【" + tableName + "】表数据为0条，[" + count + "] 条内置数据已被重新插入");
+                }
+            } else {
+                // 2.表不存在,则创建表,并插入内置数据
+                String createTableSql = tableDDLMap.get(tableName);
+                // -- 新建表
+                jdbcTemplate.execute(createTableSql);
+                // -- 新建索引
+                Map<String, String> createIndexSqlMap = indexDDLMaps.get(tableName);
+                int indexCount = 0;
+                if (createIndexSqlMap != null) {
+                    for (Map.Entry<String, String> entry : createIndexSqlMap.entrySet()) {
+                        String indexDDL = entry.getValue();
+                        jdbcTemplate.execute(indexDDL);
+                        indexCount++;
+                    }
+                }
+                // -- 添加注释
+                Map<String, String> commentMap = commentDDLMaps.get(tableName);
+                if (commentMap != null && commentMap.size() > 0) {
+                    for (Map.Entry<String, String> entry : commentMap.entrySet()) {
+                        String commentAddSql = entry.getValue();
+                        jdbcTemplate.execute(commentAddSql);
+                    }
+                }
+                // -- 插入内置数据
+                List<String> insertSqls = insertDataDMLMap.get(tableName);
+                int innerDataCount = 0;
+                if (null != insertSqls && insertSqls.size() > 0) {
+                    for (String insertSql : insertSqls) {
+                        int rows = jdbcTemplate.update(insertSql);
+                        innerDataCount = innerDataCount + rows;
+                    }
+                }
+                // -- 生成日志语句
+                StringBuilder logStr = new StringBuilder(" >>>>>>>>>> 新建【" + tableName + "】表;");
+                if (indexCount > 0) {
+                    logStr.append("【" + indexCount + "】个非主键索引被新建;");
+                }
+                if (innerDataCount > 0) {
+                    logStr.append("【" + innerDataCount + "】条内置数据被插入;");
+                }
+                log.info(logStr.toString());
+            }
         }
+        // 结尾执行一些额外的扩展逻辑
+        dbToolsConfig.executeExtraSqlInTheEnd();
         log.info("<====== 表结构校验结束 ======>\n\n");
     }
 
