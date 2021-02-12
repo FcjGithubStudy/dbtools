@@ -120,6 +120,19 @@ public class OracleValidator {
      * 列名正则编译器：调用matcher(targetStr)方法可以生成相应的正则匹配器
      */
     private static final Pattern columnPtn = Pattern.compile(columnNameRegex);
+    /**
+     * 列默认值正则表达式
+     */
+    private static final String defaultValueRegex = "(DEFAULT ')([^']+)(')";
+    /**
+     * 列默认值正则编译器：调用matcher(targetStr)方法可以生成相应的正则匹配器
+     */
+    private static final Pattern defaultValuePtn = Pattern.compile(defaultValueRegex);
+
+    /**
+     * 在列默认值中定义的英文逗号,标记占位符
+     */
+    public static final String commaInDefaultValue = "#@comma@#";
 
     /**
      * 插入内置数据正则表达式
@@ -129,7 +142,6 @@ public class OracleValidator {
      * 插入内置数据编译器:调用matcher(targetStr)方法可以生成相应的正则匹配器
      */
     private static final Pattern insertDataPtn = Pattern.compile(insertDataRegex);
-
     /**
      * dbtools数据源相关配置类，在创建Validator对象时，由外部传入
      */
@@ -154,6 +166,7 @@ public class OracleValidator {
      * @throws IOException
      */
     public void init() throws IOException {
+        log.info("<====== oracle校验器初始化开始 ======>");
         // 1.解析指定sql文件,将insert语句与create语句归类单独分离开,使得后续逻辑结构更加清晰
         classifySqls();
         // 2.初始化建表语句
@@ -164,6 +177,7 @@ public class OracleValidator {
         initCommentDDL();
         // 5.初始化插入内置数据语句
         initInterDataDML();
+        log.info("<====== oracle校验器初始化结束 ======>");
     }
 
 
@@ -386,13 +400,31 @@ public class OracleValidator {
                 // 2.提取列名与增列语句,以表名为键,指向一个子map,该子map,以列名为键,以新增列的语句为值
                 // -- 去除表名前缀部分,顺带把换行符也一并去除了
                 String columnStr = createTableSql.replaceAll(tableNameRegex + "|\\n", "");
-                // -- 从第一个【`】符号开始,截取语句, 然后以【逗号】作为分隔符分割(\\s*是为了一并除去逗号后面的多余空格),分割出字段语句
-                String[] columns = columnStr.substring(columnStr.indexOf(DB_ESCAPE_CHARACTER)).split(",\\s*");
+                // -- 【默认值中的英文逗号,前置转化处理】，以解决后续用英文,分割时候产生的歧义问题
+                String copySql = columnStr;
+                Matcher dfMatcher = defaultValuePtn.matcher(copySql);
+                // -- while循环会将默认值中的英文逗号,全部替换成临时占位符
+                while (dfMatcher.find()) {
+                    String rawSql = dfMatcher.group(2);
+                    // 将默认值中的英文逗号先用占位符替换，防止split时候歧义，后续会再重新替换回来。（\\{替换成 \\\\{ 是因为{在java中属于转义字符，此处3步必须这么替换）
+                    rawSql = rawSql.replaceAll("\\{", "\\\\{");
+                    String handledSql = rawSql.replaceAll(",", commaInDefaultValue);
+                    columnStr = columnStr.replaceAll(rawSql, handledSql);
+                }
+
+                // -- 从第一个【"】符号开始,截取语句, 然后以【逗号】作为分隔符分割(\\s*是为了一并除去逗号后面的多余空格),分割出字段语句
+                String[] tempColumns = columnStr.substring(columnStr.indexOf(DB_ESCAPE_CHARACTER)).split(",\\s*");
+
+                // -- 【默认值中的英文逗号,后置转化处理】，重新将之前约定的占位符号，转变回英文逗号
+                ArrayList<String> columnSqls = new ArrayList<>();
+                for (String cs : tempColumns) {
+                    columnSqls.add(cs.replaceAll(commaInDefaultValue, ","));
+                }
+
                 Map<String, String> tableColsMap = new LinkedHashMap<>();
                 // -- 遍历提取字段名,并动态生成【新增字段】的DDL语句,封装至【表列名map】中，以列名为键，列DDL sql为值
-                for (String cs : columns) {
-                    cs = cs.toUpperCase();
-                    if (cs.contains("PRIMARY KEY")) {
+                for (String cs : columnSqls) {
+                    if (cs.toUpperCase().contains("PRIMARY KEY")) {
                         // 遍历到PRIMARY KEY语句,说明遍历到结尾了
                         break;
                     }

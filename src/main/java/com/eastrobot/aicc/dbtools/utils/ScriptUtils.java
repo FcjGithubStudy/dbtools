@@ -1,6 +1,5 @@
 package com.eastrobot.aicc.dbtools.utils;
 
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
@@ -18,28 +17,29 @@ import java.util.List;
  * @date 2020/7/30 15:47
  */
 public class ScriptUtils {
-    /**
-     * 测试
-     *
-     * @param args
-     * @throws IOException
-     */
-    public static void main(String[] args) throws IOException {
-        Resource resource = new ClassPathResource("oracle/oracle_master.sql");
-        List<String> sqls = ScriptUtils.readScript(resource);
-        String tempStr = "";
-        for (String sql : sqls) {
-            if (!tempStr.equals(sql.substring(0, 4))) {
-                System.out.println();
-                tempStr = sql.substring(0, 4);
-            }
-            System.out.println(sql);
-        }
-    }
+//    /**
+//     * 测试
+//     *
+//     * @param args
+//     * @throws IOException
+//     */
+//    public static void main(String[] args) throws IOException {
+//        Resource resource = new ClassPathResource("oracle/oracle_master.sql");
+//        List<String> sqls = ScriptUtils.readScript(resource);
+//        String tempStr = "";
+//        for (String sql : sqls) {
+//            if (!tempStr.equals(sql.substring(0, 4))) {
+//                System.out.println();
+//                tempStr = sql.substring(0, 4);
+//            }
+//            System.out.println(sql);
+//        }
+//    }
 
     /**
      * 默认的语句结尾标记分隔符
-     * 解释:因为部分内置sql的注释或者插入的数据中,也存在英文的分号;,如果没有针对结尾分号做特殊标记,后续分割就会出问题,故设置此变量
+     * 解释:因为部分内置sql的注释或者插入的数据中,也存在英文的分号;,如果没有针对结尾分号做特殊标记,后续分割就会出问题,故设置此变量。
+     * 执行过程中会先把所有结尾分号先用【;!】符号临时代替，最后全局替换【;!】为【;】还原回来
      */
     public static final String DEFAULT_END_MARK_SEPARATOR = ";!";
     /**

@@ -19,7 +19,7 @@ import java.util.Properties;
 
 /**
  * 模块名称: 独立的Dbtools数据源相关配置实现类
- * 模块描述: 主要用于私有环境部署,或者单独执行该dbtools
+ * 模块描述: 主要用于私有环境部署,或者单租户环境执行该dbtools
  *
  * @author xinchi.wang
  * @date 2020/8/5 11:33

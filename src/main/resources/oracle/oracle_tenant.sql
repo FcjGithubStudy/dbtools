@@ -49,53 +49,39 @@ COMMENT ON COLUMN "AUTH_MENU"."EDIT_TIME" IS '更新时间';
 -- Records of AUTH_MENU
 -- ----------------------------
 INSERT INTO "AUTH_MENU" VALUES ('10000', NULL, '系统', '/system', 0, NULL, '1000', NULL, '开启后角色可访问浏览系统模块', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('100000', NULL, '坐席工作台-登录访问', '/workbench', 0, NULL, '1001', NULL, '开启后角色可登录访问坐席工作台', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('101000', '100000', '我的工单', '/workorder', 0, NULL, '1001.1000', NULL, '开启后角色可访问浏览我的工单模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('101100', '101000', '已完成工单', 'finished', 0, NULL, '1001.1000.1000L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('101200', '101000', '受理中工单', 'processing', 0, NULL, '1001.1000.1001L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('101300', '101000', '已回复工单', 'replied', 0, NULL, '1001.1000.1002L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('101400', '101000', '未受理工单', 'processed', 0, NULL, '1001.1000.1003L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('101800', '101000', '工单模板列表', 'listTemplate', 0, NULL, '1001.1000.1007L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1000000', NULL, '坐席工作台-登录访问', '/workbench', 0, NULL, '1001', NULL, '开启后角色可登录访问坐席工作台', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('11000', '10000', '操作记录', '/system/operation_log', 0, NULL, '1000.1000', NULL, '开启后角色可访问浏览操作记录页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('110000', '100000', '工作报表', '/workreport', 0, NULL, '1001.1001', NULL, '开启后角色可访问浏览工作报表模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1100000', '1000000', '工作报表', '/workreport', 0, NULL, '1001.1000', NULL, '开启后角色可访问浏览工作报表模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('11001', '11000', '查询操作记录', '/system/operation_log/getPaged_get', 1, NULL, '1000.1000.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('111000', '110000', '自定义报表', '/workreport/autoReport', 0, NULL, '1001.1001.1000L', NULL, '开启后角色可访问浏览自定义报表页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('111100', '111000', '报表方案管理', NULL, 0, NULL, '1001.1001.1000.1000', NULL, '开启后角色可访问浏览报表方案管理页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('111110', '111100', '删除报表方案', NULL, 0, NULL, '1001.1001.1000.1000.1000L', NULL, '设定角色可删除已有报表方案', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('111120', '111100', '编辑报表方案', NULL, 0, NULL, '1001.1001.1000.1000.1001L', NULL, '设定角色可对已有报表方案进行编辑', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('111130', '111100', '新建报表方案', NULL, 0, NULL, '1001.1001.1000.1000.1002L', NULL, '设定角色可新建自定义报表方案', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('112000', '110000', '坐席报表', '/workreport/seatReport', 0, NULL, '1001.1001.1001L', NULL, '开启后角色可访问浏览坐席报表页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('112100', '112000', '坐席报表查询数据范围', NULL, 2, NULL, '1001.1001.1001.1000L', '[{\"name\":\"仅可查看自己\",\"value\":\"jkckzj\"},{\"name\":\"可查看所在坐席组\",\"value\":\"ckszzxz\"},{\"name\":\"可查看所属技能组\",\"value\":\"ckssjnz\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"},{\"name\":\"自定义跨组查看\",\"value\":\"zdykz\"}]', '设定角色可查询坐席报表的数据范围', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('113000', '110000', '会话报表', '/workreport/chatReport', 0, NULL, '1001.1001.1002L', NULL, '开启后角色可访问浏览会话报表页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('113100', '113000', '技能组会话量', NULL, 0, NULL, '1001.1001.1002.1000', NULL, '开启后角色可访问浏览技能组会话量标签页', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('113110', '113100', '查询技能组数据范围', NULL, 2, NULL, '1001.1001.1002.1000.1000L', NULL, '设定角色可查询的技能组范围', 'aicc_wb', NULL, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('113200', '113000', '会话量趋势', NULL, 0, NULL, '1001.1001.1002.1001', NULL, '开启后角色可访问浏览会话量趋势标签页', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('113210', '113200', '会话量数据查询范围', NULL, 2, NULL, '1001.1001.1002.1001.1000L', '[{\"name\":\"仅可查看自己\",\"value\":\"jkckzj\"},{\"name\":\"可查看所在坐席组\",\"value\":\"ckszzxz\"},{\"name\":\"可查看所属技能组\",\"value\":\"ckssjnz\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"},{\"name\":\"自定义跨组查看\",\"value\":\"zdykz\"}]', '设定角色可查询会话量趋势的数据范围\r\n\r\n', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('114000', '110000', '数据概况', '/workreport/dataReport', 0, NULL, '1001.1001.1003L', NULL, '开启后角色可访问浏览数据概况页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('114100', '114000', '数据概况查询范围', NULL, 2, NULL, '1001.1001.1003.1000L', '[{\"name\":\"仅可查看自己\",\"value\":\"jkckzj\"},{\"name\":\"可查看所在坐席组\",\"value\":\"ckszzxz\"},{\"name\":\"可查看所属技能组\",\"value\":\"ckssjnz\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"},{\"name\":\"自定义跨组查看\",\"value\":\"zdykz\"}]', '\r\n设定角色可查询的数据概况范围', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('12000', '10000', '自定义字段', '/system/custom_field', 0, NULL, '1000.1001', NULL, '开启后角色可访问浏览自定义字段页面\r\n\r\n', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('120000', '100000', '会话记录', '/chatlog', 0, NULL, '1001.1002', NULL, '开启后角色可访问浏览会话记录模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('12100', '12000', '新建/编辑字段', NULL, 2, NULL, '1000.1001.1000', NULL, '\r\n开启后角色可创建新的字段并对已有字段进行编辑、删除。', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('121000', '120000', '历史会话记录查询范围', '/chatlog/ChatHistory', 2, NULL, '1001.1002.1000', '[{\"name\":\"仅可查看自己\",\"value\":\"jkckzj\"},{\"name\":\"可查看所在坐席组\",\"value\":\"ckszzxz\"},{\"name\":\"可查看所属技能组\",\"value\":\"ckssjnz\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"},{\"name\":\"自定义跨组查看\",\"value\":\"zdykz\"}]', '设定角色可查询的会话记录范围', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1120000', '1100000', '数据分析', '/workreport/dataReport/analyze', 0, NULL, '1001.1000.1000', NULL, '开启后角色可访问浏览坐席报表页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1121000', '1120000', '访客排队分析', '/workreport/queue', 0, NULL, '1001.1000.1000.1000L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1122000', '1120000', '咨询评价分析', '/workreport/dataReport/analyze/evaluation', 0, NULL, '1001.1000.1000.1001L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1130000', '1100000', '绩效分析', '/workreport/dataReport/performance', 0, NULL, '1001.1000.1001', NULL, '开启后角色可访问浏览绩效分析页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1131000', '1130000', '工作时长统计', '/workreport/dataReport/performance/workHoursStatistics', 0, NULL, '1001.1000.1001.1000L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1140000', '1100000', 'KPI统计', '/workreport/dataReport/kpi', 0, NULL, '1001.1000.1002', NULL, '开启后角色可访问浏览数据概况页面', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1141000', '1140000', 'KPI详情', '/workreport/dataReport/kpi/detail', 0, NULL, '1001.1000.1002.1000L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('12000', '10000', '自定义字段', '/system/custom_field', 0, NULL, '1000.1001', NULL, '开启后角色可访问浏览自定义字段页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1200000', '1000000', '会话记录', '/chatlog', 0, NULL, '1001.1001', NULL, '开启后角色可访问浏览会话记录模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('12100', '12000', '新建/编辑字段', NULL, 2, NULL, '1000.1001.1000', NULL, '开启后角色可创建新的字段并对已有字段进行编辑、删除。', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1210000', '1200000', '历史会话记录查询范围', '/chatlog/ChatHistory', 2, NULL, '1001.1001.1000', '[{"name":"仅可查看自己","value":"jkckzj"},{"name":"可查看所在坐席组","value":"ckszzxz"},{"name":"可查看所属技能组","value":"ckssjnz"},{\"name\":\"可查看所有\",\"value\":\"ALL\"}]', '设定角色可查询的会话记录范围', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('12101', '12100', '新增字段', '/system/custom_field/insert_post', 1, NULL, '1000.1001.1000.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('12102', '12100', '删除字段', '/system/custom_field/delete_delete', 1, NULL, '1000.1001.1000.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('12103', '12100', '编辑字段', '/system/custom_field/update_put', 1, NULL, '1000.1001.1000.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('12104', '12000', '查询字段', '/system/custom_field/getPaged_get', 1, NULL, '1000.1001.1000.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('122000', '121000', '查看会话记录设置', '/slog/list_get', 1, NULL, '1001.1002.1000.1001L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('123000', '121000', '导出会话记录设置', '/slog/export_get', 1, NULL, '1001.1002.1000.1002L', NULL, '开启后角色可导出会话记录', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('124000', '121000', '查看会话详情设置', '/chathistory/list_get', 1, NULL, '1001.1002.1000.1003L', NULL, '', 'aicc_wb', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('125000', '121000', '导出会话详情设置', '/chathistory/export_get', 1, NULL, '1001.1002.1000.1004L', NULL, NULL, 'aicc_wb', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('12104', '12000', '查询字段', '/system/custom_field/getPaged_get', 1, NULL, '1000.1001.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1220000', '1210000', '查看会话记录设置', '/slog/list_post', 1, NULL, '1001.1001.1000.1000L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1230000', '1210000', '导出会话记录设置', '/slog/export_post', 1, NULL, '1001.1001.1000.1001L', NULL, '开启后角色可导出会话记录', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1240000', '1210000', '查看会话详情设置', '/chathistory/list_get', 1, NULL, '1001.1001.1000.1002L', NULL, '', 'aicc_wb', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1250000', '1210000', '导出会话详情设置', '/chathistory/export_get', 1, NULL, '1001.1001.1000.1003L', NULL, NULL, 'aicc_wb', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('13000', '10000', '公告管理', NULL, 0, NULL, '1000.1002', NULL, '开启后角色可访问浏览公告管理页面', 'aicc_bp', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('130000', '100000', '个人设置', '/setting', 0, NULL, '1001.1003L', NULL, '\r\n开启后角色可访问浏览个人设置模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1300000', '1000000', '个人设置', '/setting', 0, NULL, '1001.1002L', NULL, '开启后角色可访问浏览个人设置模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('13100', '13000', '新建/编辑公告', NULL, 2, NULL, '1000.1002.1000L', NULL, '开启后角色可创建新的公告并对已有公告进行编辑、发布、删除', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('14000', '10000', '订单管理', NULL, 0, NULL, '1000.1003L', NULL, '开启后角色可访问浏览订单管理页面', 'aicc_bp', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('140000', '100000', '当前会话', '/chat', 0, NULL, '1001.1004', NULL, '\r\n开启后角色可访问浏览当前会话模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('141000', '140000', '会话转接范围', NULL, 2, NULL, '1001.1004.1000L', '[{\"name\":\"所有技能组\",\"value\":\"ALL\"},{\"name\":\"自定义技能组\",\"value\":\"zdykz\"}]', '设定角色可转接会话的技能组范围', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('15000', '10000', '企业账户信息', NULL, 0, NULL, '1000.1004', NULL, '\r\n开启后角色可访问浏览企业账户信息页面', 'aicc_bp', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('150000', '100000', '服务评价', '/evaluation', 0, NULL, '1001.1005L', NULL, '\r\n开启后角色可访问浏览服务评价模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1400000', '1000000', '当前会话', '/chat', 0, NULL, '1001.1003', NULL, '开启后角色可访问浏览当前会话模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1410000', '1400000', '会话转接范围', '/chat/zhuanjie', 2, NULL, '1001.1003.1000L', '[{\"name\":\"所有技能组\",\"value\":\"ALL\"},{\"name\":\"自定义技能组\",\"value\":\"zdykz\"}]', '设定角色可转接会话的技能组范围', 'aicc_wb', NULL, 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('15000', '10000', '企业账户信息', NULL, 0, NULL, '1000.1004', NULL, '开启后角色可访问浏览企业账户信息页面', 'aicc_bp', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('15100', '15000', '企业账户信息修改', NULL, 2, NULL, '1000.1004.1000L', NULL, '开启后角色可修改企业账户信息预留的联系人、联系电话、联系邮箱', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('16000', '10000', '路由策略管理', '/system/strategy', 0, NULL, '1000.1005', NULL, '开启后角色可访问路由策略管理页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('160000', '100000', '访客留言', '/leaveword', 0, NULL, '1001.1006L', NULL, '\r\n开启后角色可访问浏览访客留言模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1600000', '1000000', '访客留言', '/leaveword', 0, NULL, '1001.1005L', NULL, '开启后角色可访问浏览访客留言模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('16100', '16000', '查看渠道信息', '/acd/getChannels_get', 1, NULL, '1000.1005.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('16200', '16000', '查看技能组列表', '/skill/listSkillGroup_get', 1, NULL, '1000.1005.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('16300', '16000', '编辑策略', '/acd/editAcd_post', 1, NULL, '1000.1005.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
@@ -103,26 +89,27 @@ INSERT INTO "AUTH_MENU" VALUES ('16400', '16000', '查看渠道列表', '/acd/li
 INSERT INTO "AUTH_MENU" VALUES ('16500', '16000', '删除策略', '/acd/deleteAcd_delete', 1, NULL, '1000.1005.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('16600', '16000', '查看策略', '/acd/getAcdById_get', 1, NULL, '1000.1005.1005L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('16700', '16000', '校验策略名称', '/acd/getAcdByNameAndId_get', 1, NULL, '1000.1005.1006L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('170000', '100000', '任务概览', '/overview', 0, NULL, '1001.1007L', NULL, '\r\n开启后角色可访问浏览任务概览模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17000', '10000', '路由策略应用', '/system/strategyApply', 0, NULL, '1000.1006', NULL, '开启后角色可访问路由策略应用页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1700000', '1000000', '任务概览', '/overview', 0, NULL, '1001.1006L', NULL, '开启后角色可访问浏览任务概览模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17100', '17000', '获取平台策略列表', '/acd/platform/listPlatformAcds_get', 1, NULL, '1000.1006.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17200', '17000', '根据id获取平台策略信息', '/acd/platform/getPlatformAcdById_get', 1, NULL, '1000.1006.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17300', '17000', '保存平台策略', '/acd/platform/savePlatformAcd_post', 1, NULL, '1000.1006.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17400', '17000', '根据id获取平台策略信息', '/acd/platform/deletePlatformAcdById_delete', 1, NULL, '1000.1006.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17500', '17000', '获取平台信息', '/acd/platform/getPlatforms_get', 1, NULL, '1000.1006.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('17600', '17000', '根据channelids获取策略', '/acd/platform/getAcdByChannelIds_post', 1, NULL, '1000.1006.1005L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1800000', '1000000', '主管监控', '/watch', 0, NULL, '1001.1007L', NULL, '开启后角色可访问浏览主管监控模块', 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('20000', NULL, '用户', '/user', 0, NULL, '1002', NULL, '开启后角色可访问浏览用户模块', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('21000', '20000', '技能组管理', '/user/sgmgr', 0, NULL, '1002.1000', NULL, '开启后角色可访问浏览技能组管理页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('21100', '21000', '技能组管理操作', '/user/sgmgr/operate', 2, NULL, '1002.1000.1000', NULL, '开启后角色可创建技能组、删除已有技能组、编辑已有技能组（成员、业务）', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21101', '21000', '查看技能组', '/skill/listSkillGroup_get', 1, NULL, '1002.1000.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21102', '21100', '新增技能组', '/skill/addSkillGroup_post', 1, NULL, '1002.1000.1000.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21103', '21100', '删除技能组', '/skill/deleteSkillGroup_delete', 1, NULL, '1002.1000.1000.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21104', '21000', '查看坐席组', '/ug/getUserGroupTree_get', 1, NULL, '1002.1000.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21105', '21000', '查看技能组成员', '/skill/listSkillGroupUser_get', 1, NULL, '1002.1000.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21106', '21100', '添加技能组成员', '/skill/addSkillGroupMem_post', 1, NULL, '1002.1000.1000.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21107', '21100', '删除技能组成员', '/skill/deleteSkillGroupMember_delete', 1, NULL, '1002.1000.1000.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21108', '21000', '查看技能组设置', '/skill/getSkillGroupSetting_get', 1, NULL, '1002.1000.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('21109', '21100', '添加技能组设置', '/skill/addSkillGroupSetting_post', 1, NULL, '1002.1000.1000.1005L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21101', '21000', '查看技能组', '/skill/listSkillGroup_get', 1, NULL, '1002.1000.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21102', '21100', '新增技能组', '/skill/addSkillGroup_post', 1, NULL, '1002.1000.1000.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21103', '21100', '删除技能组', '/skill/deleteSkillGroup_delete', 1, NULL, '1002.1000.1000.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21104', '21000', '查看坐席组', '/ug/getUserGroupTree_get', 1, NULL, '1002.1000.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21105', '21000', '查看技能组成员', '/skill/listSkillGroupUser_get', 1, NULL, '1002.1000.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21106', '21100', '添加技能组成员', '/skill/addSkillGroupMem_post', 1, NULL, '1002.1000.1000.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21107', '21100', '删除技能组成员', '/skill/deleteSkillGroupMember_delete', 1, NULL, '1002.1000.1000.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21108', '21000', '查看技能组设置', '/skill/getSkillGroupSetting_get', 1, NULL, '1002.1000.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('21109', '21100', '添加技能组设置', '/skill/addSkillGroupSetting_post', 1, NULL, '1002.1000.1000.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('22000', '20000', '角色权限管理', '/user/rolemgr', 0, NULL, '1002.1001', NULL, '开启后角色可访问浏览角色权限管理页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('22100', '22000', '角色权限管理操作', '/user/rolemgr/operate', 2, NULL, '1002.1001.1000', NULL, '开启后角色可创建新角色、编辑已有角色权限、删除已有角色', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('22101', '22100', '新建角色', '/role/editRole_post', 1, NULL, '1002.1001.1000.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
@@ -133,9 +120,9 @@ INSERT INTO "AUTH_MENU" VALUES ('22105', '22100', '查看角色类型列表', '/
 INSERT INTO "AUTH_MENU" VALUES ('22106', '22100', '查看坐席组', '/ug/getUserGroupTree_get', 1, NULL, '1002.1001.1000.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('22107', '22100', '查看技能组', '/skill/listSkillGroup_get', 1, NULL, '1002.1001.1000.1005L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('22108', '22100', '查看具体角色', '/role/getRole_get', 1, NULL, '1002.1001.1000.1006L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('22109', '22100', '修改角色时踢出用户', '/role/kickUser_get', 1, NULL, '1002.1001.1000.1006L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('23000', '20000', '坐席管理', '/user/wbmgr', 0, NULL, '1002.1002', NULL, '\r\n开启后角色可访问浏览坐席管理页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "AUTH_MENU" VALUES ('23100', '23000', '坐席账号管理范围', '/user/wbmgr/account_range', 2, NULL, '1002.1002.1000L', '[{\"name\":\"全部坐席\",\"value\":\"all\"},{\"name\":\"所负责组\",\"value\":\"fzz\"}]', '\r\n设定可进行管理操作的坐席账号范围', 'aicc_bp', NULL, 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('22109', '22100', '修改角色时踢出用户', '/role/kickUser_get', 1, NULL, '1002.1001.1000.1007L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('23000', '20000', '坐席管理', '/user/wbmgr', 0, NULL, '1002.1002', NULL, '开启后角色可访问浏览坐席管理页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('23100', '23000', '坐席账号管理范围', '/user/wbmgr/account_range', 2, NULL, '1002.1002.1000L', '[{\"name\":\"全部坐席\",\"value\":\"ALL\"},{\"name\":\"所在坐席组\",\"value\":\"fzz\"},{\"name\":\"自定义跨组\",\"value\":\"zdykz\"}]', '设定可进行管理操作的坐席账号范围', 'aicc_bp', NULL, 2, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('23200', '23000', '坐席账号管理', '/user/wbmgr/account', 2, NULL, '1002.1002.1001', NULL, '开启后角色可创建坐席账号、删除已有坐席账号并对已有坐席账号进行编辑调整。', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('23201', '23200', '新建坐席账号', '/user/addUser_post', 1, NULL, '1002.1002.1001.1000L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('23202', '23200', '删除坐席账号', '/user/deleteUser_delete', 1, NULL, '1002.1002.1001.1001L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
@@ -166,7 +153,8 @@ INSERT INTO "AUTH_MENU" VALUES ('42000', '40000', '微信', '/channel/weixin', 0
 INSERT INTO "AUTH_MENU" VALUES ('43000', '40000', '微信小程序', '/channel/weixinapp', 0, NULL, '1004.1002L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('44000', '40000', '微博', '/channel/weibo', 0, NULL, '1004.1003L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "AUTH_MENU" VALUES ('45000', '40000', 'APP', '/channel/app', 0, NULL, '1004.1004L', NULL, NULL, 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-
+INSERT INTO "AUTH_MENU" VALUES ('1260000', '1200000', '关键字查询会话记录', '/slog/querySessionLogByKeyWord_post', 1, NULL, '1001.1001.1000.1004L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "AUTH_MENU" VALUES ('1270000', '1200000', '根据会话ID查询会话记录', '/slog/querySessionLogBySessionIds_post', 1, NULL, '1001.1001.1000.1005L', NULL, NULL, 'aicc_wb', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 -- ----------------------------
 -- Table structure for AUTH_ROLE
 -- ----------------------------
@@ -175,7 +163,7 @@ CREATE TABLE "AUTH_ROLE"
     "ID"          VARCHAR2(32) NOT NULL,
     "ROLE_NAME"   VARCHAR2(128)  DEFAULT NULL,
     "ROLE_TYPE"   NUMBER(11)     DEFAULT NULL,
-    "DESCRIPTION" VARCHAR2(1024) DEFAULT NULL,
+    "DESCRIPTION" VARCHAR2(1500) DEFAULT NULL,
     "CREATOR"     VARCHAR2(32)   DEFAULT NULL,
     "CREATE_TIME" DATE           DEFAULT NULL,
     "EDITOR"      VARCHAR2(32)   DEFAULT NULL,
@@ -199,7 +187,7 @@ COMMENT ON COLUMN "AUTH_ROLE"."EDIT_TIME" IS '更新时间';
 -- ----------------------------
 -- Records of AUTH_ROLE
 -- ----------------------------
-INSERT INTO "AUTH_ROLE" VALUES ('27e55a01b74342189b00000adminrole', '管理员', 1, NULL, '0015849442017540000000155d4c6010', TO_DATE('2020-04-19 19:34:04', 'SYYYY-MM-DD HH24:MI:SS'), NULL, TO_DATE('2020-04-19 19:34:04', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "AUTH_ROLE" VALUES ('27e55a01b74342189b00000adminrole', '管理员', 1, '管理员', '27e55a01b74342189b000000000admin', TO_DATE('2020-04-19 19:34:04', 'SYYYY-MM-DD HH24:MI:SS'), NULL, TO_DATE('2020-04-19 19:34:04', 'SYYYY-MM-DD HH24:MI:SS'));
 
 -- ----------------------------
 -- Table structure for AUTH_ROLE_TYPE_DICT
@@ -273,7 +261,7 @@ COMMENT ON COLUMN "AUTH_SKILL_GROUP"."EDIT_TIME" IS '更新时间';
 -- ----------------------------
 -- Records of AUTH_SKILL_GROUP
 -- ----------------------------
-INSERT INTO "AUTH_SKILL_GROUP" VALUES ('0015870307129860015100155d4c6010', '默认技能组', '0015849442017540000000155d4c6010', TO_DATE('2020-04-16 17:51:53', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-16 17:51:53', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "AUTH_SKILL_GROUP" VALUES ('0015870307129860015100155d4c6010', '默认技能组', '27e55a01b74342189b000000000admin', TO_DATE('2020-04-16 17:51:53', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-16 17:51:53', 'SYYYY-MM-DD HH24:MI:SS'));
 
 -- ----------------------------
 -- Table structure for AUTH_SKILL_GROUP_BIZ_ITEM
@@ -296,11 +284,18 @@ CREATE TABLE "AUTH_SKILL_GROUP_BIZ_ITEM"
 -- ----------------------------
 -- Records of AUTH_SKILL_GROUP_BIZ_ITEM
 -- ----------------------------
-INSERT INTO "AUTH_SKILL_GROUP_BIZ_ITEM" VALUES ('1', '客户接入策略', 'custAccess', '1', 'select', NULL, NULL, 'cust_access_strategy', 1, 'random');
-INSERT INTO "AUTH_SKILL_GROUP_BIZ_ITEM" VALUES ('2', '问候语设置', 'welcomeMsg', '1', 'textarea', '', NULL, NULL, 2, '您好，请问有什么可以帮助您？');
-INSERT INTO "AUTH_SKILL_GROUP_BIZ_ITEM" VALUES ('3', '列队等待话术', 'waitMsg', '1', 'textarea', NULL, '&%为通配符，由系统自动计算显示当前列队的用户数', NULL, 3, '您好，目前由于业务繁忙，请您耐心等待。');
-INSERT INTO "AUTH_SKILL_GROUP_BIZ_ITEM" VALUES ('4', '无坐席在线话术', 'onLineMsg', '1', 'textarea', NULL, NULL, NULL, 4, '您好，您所咨询的业务目前无坐席在线，请您在坐席工作时间内联系咨询，或通过其他方式进行联系。');
-INSERT INTO "AUTH_SKILL_GROUP_BIZ_ITEM" VALUES ('5', '客户属性', 'custAttr', '2', 'checkbox', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('101', '客户接入策略', 'custAccess', '1', 'select', NULL, NULL, 'cust_access_strategy', 101, 'random');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('102', '问候语设置', 'welcomeMsg', '1', 'textarea', '', NULL, NULL, 102, '您好，请问有什么可以帮助您？');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('103', '列队等待话术', 'waitMsg', '1', 'textarea', NULL, '&%为通配符，由系统自动计算显示当前列队的用户数', NULL, 103, '您好，目前由于业务繁忙，请您耐心等待。');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('104', '无坐席在线话术', 'onLineMsg', '1', 'textarea', NULL, NULL, NULL, 104, '您好，您所咨询的业务目前无坐席在线，请您在坐席工作时间内联系咨询，或通过其他方式进行联系。');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('105', '会话重新分配话术', 'reAllocateMsg', '1', 'textarea', NULL, NULL, NULL, 105, '当前坐席已离开，将由新的坐席为您提供服务。');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('106', '客户属性', 'custAttr', '2', 'checkbox', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('107', '访客暂离时长', 'userLeaveTime', '1', 'number', NULL, NULL, NULL, 106, '2');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('108', '会话超时断开', 'socketWaitHour', '1', 'number', NULL, NULL, NULL, 107, '5');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('109', '会话超时提示', 'predictFinishMsg', '1', 'textarea', NULL, NULL, NULL, 108, '您已经很久没和我说话了，再过一会我可能就无法陪您咯！');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('110', '会话结束提示', 'finishMsg', '1', 'textarea', NULL, NULL, NULL, 109, '本次会话结束，坐席将先为其他用户提供服务，如您需要继续寻求坐席的帮助，您可以再次与我们联系。');
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('111', '客服统一昵称', 'unifiedNickname', '1', 'text', NULL, NULL, NULL, 110, NULL);
+INSERT INTO `AUTH_SKILL_GROUP_BIZ_ITEM` VALUES ('112', '坐席统一头像', 'unifiedAvatar', '1', 'image', NULL, NULL, NULL, 111, NULL);
 
 -- ----------------------------
 -- Table structure for AUTH_SKILL_GROUP_BIZ_TYPE
@@ -336,7 +331,7 @@ CREATE TABLE "AUTH_SKILL_GROUP_SETTING"
     "SKILL_GROUP_ID" VARCHAR2(32)  DEFAULT NULL,
     "BIZ_TYPE"       VARCHAR2(32)  DEFAULT NULL,
     "BIZ_KEY"        VARCHAR2(255) DEFAULT NULL,
-    "BIZ_VALUE"      VARCHAR2(255) DEFAULT NULL,
+    "BIZ_VALUE"      VARCHAR2(1000) DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -347,6 +342,7 @@ INSERT INTO "AUTH_SKILL_GROUP_SETTING" VALUES ('00160111569810200000061505e3d580
 INSERT INTO "AUTH_SKILL_GROUP_SETTING" VALUES ('00160111569815100001061505e3d580', '0015870307129860015100155d4c6010', 'cs_txt', 'welcomeMsg', '您好，请问有什么可以帮助您？');
 INSERT INTO "AUTH_SKILL_GROUP_SETTING" VALUES ('00160111569815600002061505e3d580', '0015870307129860015100155d4c6010', 'cs_txt', 'waitMsg', '您好，目前由于业务繁忙，请您耐心等待。');
 INSERT INTO "AUTH_SKILL_GROUP_SETTING" VALUES ('00160111569815900003061505e3d580', '0015870307129860015100155d4c6010', 'cs_txt', 'onLineMsg', '您好，您所咨询的业务目前无坐席在线，请您在坐席工作时间内联系咨询，或通过其他方式进行联系。');
+INSERT INTO "AUTH_SKILL_GROUP_SETTING" VALUES ('00160111569810330000061505e3d580', '0015870307129860015100155d4c6010', 'cs_txt', 'socketWaitHour', '5');
 
 -- ----------------------------
 -- Table structure for AUTH_USER
@@ -369,6 +365,7 @@ CREATE TABLE "AUTH_USER"
     "EDIT_TIME"     DATE           DEFAULT NULL,
     "WELCOME"       VARCHAR2(255)  DEFAULT NULL,
     "AVATAR"        VARCHAR2(128)  DEFAULT NULL,
+    "SHORTCUT_KEY"  VARCHAR2(255)  DEFAULT '{"新进线访客":"F1","未读消息最多访客":"F2","会员等级最高访客":"F3","等待最久访客":"F4"}',
     PRIMARY KEY ("ID")
 );
 
@@ -392,12 +389,13 @@ COMMENT ON COLUMN "AUTH_USER"."EDITOR" IS '编辑人';
 COMMENT ON COLUMN "AUTH_USER"."EDIT_TIME" IS '更新时间';
 COMMENT ON COLUMN "AUTH_USER"."WELCOME" IS '欢迎语';
 COMMENT ON COLUMN "AUTH_USER"."AVATAR" IS '用户图标';
+COMMENT ON COLUMN "AUTH_USER"."SHORTCUT_KEY" IS '快捷键设置';
 
 -- ----------------------------
 -- Records of AUTH_USER
 -- ----------------------------
-INSERT INTO "AUTH_USER" VALUES ('0015849442017540000000155d4c6010', 'INCE.SUPERVISOR', '$2a$10$sm8UkRcGM1v.7E/MHpdRYOBkCvMpJ0k6OTpea0PQ7TMfcs6dWfNsW', 'INCE.SUPERVISOR', 'INCE.SUPERVISOR', 3, 'INCE.SUPERVISOR', '', '', 0, '0015849442017540000000155d4c6010', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL);
-INSERT INTO "AUTH_USER" VALUES ('27e55a01b74342189b000000000admin', 'admin', '$2a$10$JseURQgQcZnvczype/AAfe5QwIuU7HRqZ3yVrPfUVNvTH6JO2KWOS', 'admin', 'admin', 3, 'admin', '', '', 0, '27e55a01b74342189b000000000admin', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL);
+INSERT INTO "AUTH_USER" VALUES ('0015849442017540000000155d4c6010', 'INCE.SUPERVISOR', '$2a$10$sm8UkRcGM1v.7E/MHpdRYOBkCvMpJ0k6OTpea0PQ7TMfcs6dWfNsW', 'INCE.SUPERVISOR', 'INCE.SUPERVISOR', 3, 'INCE.SUPERVISOR', '', '', 0, '0015849442017540000000155d4c6010', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL, '{"新进线访客":"F1","未读消息最多访客":"F2","会员等级最高访客":"F3","等待最久访客":"F4"}');
+INSERT INTO "AUTH_USER" VALUES ('27e55a01b74342189b000000000admin', 'imadmin', '$2a$10$.o4BMG8wLSyqXMBcIA0eiup6F3KcovN3sf4TLyvWNy2/JzWcjMXpW', 'admin', 'admin', 3, 'admin', '', '', 0, '27e55a01b74342189b000000000admin', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-06-01 12:00:00', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL, '{"新进线访客":"F1","未读消息最多访客":"F2","会员等级最高访客":"F3","等待最久访客":"F4"}');
 
 -- ----------------------------
 -- Table structure for AUTH_USER_GROUP
@@ -431,7 +429,7 @@ COMMENT ON COLUMN "AUTH_USER_GROUP"."EDIT_TIME" IS '更新时间';
 -- ----------------------------
 -- Records of AUTH_USER_GROUP
 -- ----------------------------
-INSERT INTO "AUTH_USER_GROUP" VALUES ('0015868314746520008200155d4c6010', '默认分组', NULL, '1000L', NULL, NULL, '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 00:09:04', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "AUTH_USER_GROUP" VALUES ('0015868314746520008200155d4c6010', '默认分组', NULL, '1000L', NULL, NULL, '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 00:09:04', 'SYYYY-MM-DD HH24:MI:SS'));
 
 -- ----------------------------
 -- Table structure for AUTH_USER_X_GROUP
@@ -674,6 +672,8 @@ INSERT INTO "COMMON_DICT_ITEM" VALUES ('6', '售中', '2', 'in_sale');
 INSERT INTO "COMMON_DICT_ITEM" VALUES ('7', '售后', '2', 'post_sale');
 INSERT INTO "COMMON_DICT_ITEM" VALUES ('8', '随机分配', '3', 'random');
 INSERT INTO "COMMON_DICT_ITEM" VALUES ('9', '会话总时长低优先', '3', 'session_time');
+INSERT INTO "COMMON_DICT_ITEM" VALUES ('11', '组内分配轮流', '1', 'rotate_in_group');
+INSERT INTO "common_dict_item" VALUES ('12', '空闲优先', '1', 'current_session_amount');
 
 -- ----------------------------
 -- Table structure for CRM_BLOCKLIST_CUSTOMER
@@ -809,69 +809,6 @@ COMMENT ON COLUMN "CRM_CONN_PLAN"."SKILL_PROPERTY" IS '技能组属性';
 COMMENT ON COLUMN "CRM_CONN_PLAN"."SKILL_PROPERTY_ID" IS '技能组属性ID';
 
 -- ----------------------------
--- Table structure for CRM_CUSTOMER
--- ----------------------------
-CREATE TABLE "CRM_CUSTOMER"
-(
-    "ID"                 VARCHAR2(32) NOT NULL,
-    "NAME_CN"            VARCHAR2(50)   DEFAULT NULL,
-    "PHONE"              VARCHAR2(16) NOT NULL,
-    "VISIT_ID"           VARCHAR2(255)  DEFAULT NULL,
-    "EMAIL"              VARCHAR2(40)   DEFAULT NULL,
-    "ADDR"               VARCHAR2(255)  DEFAULT NULL,
-    "PROPERTY"           VARCHAR2(50)   DEFAULT NULL,
-    "PROPERTY_ID"        VARCHAR2(32)   DEFAULT NULL,
-    "LEVEL"              NUMBER(11)     DEFAULT 0,
-    "SOURCE"             VARCHAR2(20) NOT NULL,
-    "REMARKS"            VARCHAR2(2000) DEFAULT NULL,
-    "LOCATION"           VARCHAR2(200)  DEFAULT NULL,
-    "CONVERSATION_FIRST" DATE           DEFAULT NULL,
-    "CONVERSATION_LAST"  DATE           DEFAULT NULL,
-    "TEL_CONN_FIRST"     DATE           DEFAULT NULL,
-    "TEL_CONN_LAST"      DATE           DEFAULT NULL,
-    "PRINCIPAL"          VARCHAR2(32)   DEFAULT NULL,
-    "PRINCIPAL_NAME"     VARCHAR2(50)   DEFAULT NULL,
-    "CREATE_USER"        VARCHAR2(32)   DEFAULT NULL,
-    "CREATE_USER_NAME"   VARCHAR2(50)   DEFAULT NULL,
-    "CREATE_DATE"        DATE           DEFAULT NULL,
-    "MODIFY_USER"        VARCHAR2(32)   DEFAULT NULL,
-    "MODIFY_USER_NAME"   VARCHAR2(50)   DEFAULT NULL,
-    "MODIFY_DATE"        DATE           DEFAULT NULL,
-    "DEL_FLAG"           NUMBER(4)      DEFAULT 0,
-    PRIMARY KEY ("ID")
-);
-
--- ----------------------------
--- comment for CRM_CUSTOMER
--- ----------------------------
-COMMENT ON TABLE "CRM_CUSTOMER" IS '客户表';
-COMMENT ON COLUMN "CRM_CUSTOMER"."ID" IS '主键';
-COMMENT ON COLUMN "CRM_CUSTOMER"."NAME_CN" IS '客户姓名';
-COMMENT ON COLUMN "CRM_CUSTOMER"."PHONE" IS '客户手机号';
-COMMENT ON COLUMN "CRM_CUSTOMER"."VISIT_ID" IS 'OPENID';
-COMMENT ON COLUMN "CRM_CUSTOMER"."EMAIL" IS '客户联系邮箱';
-COMMENT ON COLUMN "CRM_CUSTOMER"."ADDR" IS '客户地址';
-COMMENT ON COLUMN "CRM_CUSTOMER"."PROPERTY" IS '客户属性中文名';
-COMMENT ON COLUMN "CRM_CUSTOMER"."PROPERTY_ID" IS '客户属性ID/代码';
-COMMENT ON COLUMN "CRM_CUSTOMER"."LEVEL" IS '客户等级：0-普通；1-VIP；默认为0';
-COMMENT ON COLUMN "CRM_CUSTOMER"."SOURCE" IS '渠道，客户注册时的系统，必填';
-COMMENT ON COLUMN "CRM_CUSTOMER"."REMARKS" IS '备注';
-COMMENT ON COLUMN "CRM_CUSTOMER"."LOCATION" IS '客户籍贯（归属地）';
-COMMENT ON COLUMN "CRM_CUSTOMER"."CONVERSATION_FIRST" IS '首次会话时间';
-COMMENT ON COLUMN "CRM_CUSTOMER"."CONVERSATION_LAST" IS '最后会话时间';
-COMMENT ON COLUMN "CRM_CUSTOMER"."TEL_CONN_FIRST" IS '首次电联时间';
-COMMENT ON COLUMN "CRM_CUSTOMER"."TEL_CONN_LAST" IS '最后一次电联时间';
-COMMENT ON COLUMN "CRM_CUSTOMER"."PRINCIPAL" IS '负责人应该是存USERID';
-COMMENT ON COLUMN "CRM_CUSTOMER"."PRINCIPAL_NAME" IS '负责人中文名';
-COMMENT ON COLUMN "CRM_CUSTOMER"."CREATE_USER" IS '创建人';
-COMMENT ON COLUMN "CRM_CUSTOMER"."CREATE_USER_NAME" IS '创建人中文名';
-COMMENT ON COLUMN "CRM_CUSTOMER"."CREATE_DATE" IS '创建时间';
-COMMENT ON COLUMN "CRM_CUSTOMER"."MODIFY_USER" IS '修改人';
-COMMENT ON COLUMN "CRM_CUSTOMER"."MODIFY_USER_NAME" IS '修改人中文名';
-COMMENT ON COLUMN "CRM_CUSTOMER"."MODIFY_DATE" IS '修改时间';
-COMMENT ON COLUMN "CRM_CUSTOMER"."DEL_FLAG" IS '删除标识：0-正常；1-逻辑删除';
-
--- ----------------------------
 -- Table structure for CRM_CUSTOMER_COL
 -- ----------------------------
 CREATE TABLE "CRM_CUSTOMER_COL"
@@ -882,7 +819,7 @@ CREATE TABLE "CRM_CUSTOMER_COL"
     "TYPE"             VARCHAR2(20)  DEFAULT NULL,
     "COL_STATUS"       NUMBER(11)    DEFAULT NULL,
     "COL_INDEX"        NUMBER(11)    DEFAULT NULL,
-    "COL_ORDER"        NUMBER(11)    DEFAULT NULL,
+    "COL_ORDER"        NUMBER(11)    DEFAULT 99,
     "SHOW_SYS"         VARCHAR2(128) DEFAULT NULL,
     "CREATE_USER"      VARCHAR2(32)  DEFAULT NULL,
     "CREATE_USER_NAME" VARCHAR2(50)  DEFAULT NULL,
@@ -921,17 +858,17 @@ COMMENT ON COLUMN "CRM_CUSTOMER_COL"."FIELD_VALUES" IS '自定义字段枚举';
 -- ----------------------------
 -- Records of CRM_CUSTOMER_COL
 -- ----------------------------
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('55e8fc4b0583416587a2de54848f89ee', '姓名', 'NAME_CN', 'default_type', 1, 0, 1, 'AICC_CRM,AICC_WORKBENCH,AICC_ORDER', NULL, NULL, TO_DATE('2020-05-07 16:14:50', 'SYYYY-MM-DD HH24:MI:SS'), '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:09:55', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'name', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('8fff2fc7933d4e68acff4d4d5bbf68cc', '手机', 'PHONE', 'default_type', 1, 0, 2, 'AICC_CRM,AICC_WORKBENCH,AICC_ORDER', NULL, NULL, NULL, NULL, NULL, NULL, 0, 'mobile', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('bb602fa463ee4da5a26d1ad2793a6c75', '邮箱', 'EMAIL', 'default_type', 1, 0, 3, 'AICC_CRM,AICC_WORKBENCH', NULL, NULL, TO_DATE('2020-05-08 14:52:36', 'SYYYY-MM-DD HH24:MI:SS'), '001588822827321001697e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 14:52:36', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'email', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('dc89e4a55caa40deb74ef6e650b96d7b', '地址', 'ADDR', 'default_type', 0, 0, 4, 'AICC_CRM,AICC_ORDER', NULL, NULL, TO_DATE('2020-05-08 12:57:01', 'SYYYY-MM-DD HH24:MI:SS'), '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:08:15', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'address', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('636bd0aac50c428a8d95edd959d0400c', '属性', 'PROPERTY', 'default_type', 0, 0, 5, 'AICC_CRM,AICC_ORDER', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:09:09', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'customer_property', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('0236f8f67a1e41dc89d4c62499d7f47f', '标签', 'LABEL', 'default_type', 1, 0, 6, 'AICC_CRM,AICC_WORKBENCH', NULL, NULL, TO_DATE('2020-05-08 14:08:49', 'SYYYY-MM-DD HH24:MI:SS'), '001588928326414012237e1d5cb59a5d', 'xiaochuang', TO_DATE('2020-05-08 17:18:16', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'default_label', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('d850911971514d4d85e55d646651d3df', '等级', 'LEVEL', 'default_type', 1, 0, 7, 'AICC_WORKBENCH,AICC_ORDER', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:07:21', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'level', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('55e8fc4b0583416587a2de54848f89ee', '姓名', 'NAME_CN', 'default_type', 2, 0, 1, 'AICC_CRM,AICC_WORKBENCH', NULL, NULL, TO_DATE('2020-05-07 16:14:50', 'SYYYY-MM-DD HH24:MI:SS'), '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:09:55', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'name', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('8fff2fc7933d4e68acff4d4d5bbf68cc', '手机', 'PHONE', 'default_type', 2, 0, 2, 'AICC_CRM,AICC_WORKBENCH', NULL, NULL, NULL, NULL, NULL, NULL, 0, 'mobile', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('bb602fa463ee4da5a26d1ad2793a6c75', '邮箱', 'EMAIL', 'default_type', 2, 0, 3, 'AICC_CRM,AICC_WORKBENCH', NULL, NULL, TO_DATE('2020-05-08 14:52:36', 'SYYYY-MM-DD HH24:MI:SS'), '001588822827321001697e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 14:52:36', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'email', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('dc89e4a55caa40deb74ef6e650b96d7b', '地址', 'ADDR', 'default_type', 2, 0, 4, 'AICC_CRM', NULL, NULL, TO_DATE('2020-05-08 12:57:01', 'SYYYY-MM-DD HH24:MI:SS'), '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:08:15', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'address', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('636bd0aac50c428a8d95edd959d0400c', '属性', 'PROPERTY', 'default_type', 2, 0, 5, 'AICC_CRM', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:09:09', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'customer_property', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('0236f8f67a1e41dc89d4c62499d7f47f', '标签', 'LABEL', 'default_type', 2, 0, 6, 'AICC_CRM,AICC_WORKBENCH', NULL, NULL, TO_DATE('2020-05-08 14:08:49', 'SYYYY-MM-DD HH24:MI:SS'), '001588928326414012237e1d5cb59a5d', 'xiaochuang', TO_DATE('2020-05-08 17:18:16', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'default_label', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('d850911971514d4d85e55d646651d3df', '等级', 'LEVEL_', 'default_type', 1, 0, 7, 'AICC_WORKBENCH', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:07:21', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'level', 'blank');
 INSERT INTO "CRM_CUSTOMER_COL" VALUES ('20a4581af6d74d4ea0092149302e04d0', '负责人', 'PRINCIPAL_NAME', 'default_type', 1, 0, 8, NULL, NULL, NULL, TO_DATE('2020-05-08 14:33:09', 'SYYYY-MM-DD HH24:MI:SS'), '001588913785588011157e1d5cb59a5d', 'yangyang', TO_DATE('2020-05-08 14:33:09', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'director', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('5acb6f1be351431ea01fcf52ff8f8237', '来源终端', 'SOURCE', 'default_type', 0, 0, 9, 'AICC_ORDER', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:08:50', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'terminal', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('a39623827e9e433e8a2c43cffa3b7b81', '创建时间', 'CREATE_DATE', 'default_type', 0, 0, 10, 'AICC_CRM,AICC_ORDER', NULL, NULL, TO_DATE('2020-05-08 14:52:34', 'SYYYY-MM-DD HH24:MI:SS'), '001588822827321001697e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 14:52:34', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'create_time', 'blank');
-INSERT INTO "CRM_CUSTOMER_COL" VALUES ('c64c86c4a5e6416788a7c9452f6094f4', '更新时间', 'MODIFY_DATE', 'default_type', 1, 0, 11, 'AICC_CRM,AICC_ORDER', NULL, NULL, TO_DATE('2020-05-08 14:52:38', 'SYYYY-MM-DD HH24:MI:SS'), '001588822827321001697e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 14:52:38', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'update_time', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('5acb6f1be351431ea01fcf52ff8f8237', '来源终端', 'SOURCE', 'default_type', 0, 0, 9, '', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:08:50', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'terminal', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('a39623827e9e433e8a2c43cffa3b7b81', '创建时间', 'CREATE_DATE', 'default_type', 2, 0, 10, 'AICC_CRM', NULL, NULL, TO_DATE('2020-05-08 14:52:34', 'SYYYY-MM-DD HH24:MI:SS'), '001588822827321001697e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 14:52:34', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'create_time', 'blank');
+INSERT INTO "CRM_CUSTOMER_COL" VALUES ('c64c86c4a5e6416788a7c9452f6094f4', '更新时间', 'MODIFY_DATE', 'default_type', 2, 0, 11, 'AICC_CRM', NULL, NULL, TO_DATE('2020-05-08 14:52:38', 'SYYYY-MM-DD HH24:MI:SS'), '001588822827321001697e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 14:52:38', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'update_time', 'blank');
 INSERT INTO "CRM_CUSTOMER_COL" VALUES ('74d86785715947198a9d77b3539cff64', '首次会话时间', 'CONVERSATION_FIRST', 'default_type', 0, 0, 12, 'AICC_CRM', NULL, NULL, NULL, '001588928289396012177e1d5cb59a5d', 'shashaWei', TO_DATE('2020-05-08 17:09:39', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'first_session_time', 'blank');
 INSERT INTO "CRM_CUSTOMER_COL" VALUES ('74da4e560f244d868ee0b60ed442ef75', '最后一次会话时间', 'CONVERSATION_LAST', 'default_type', 1, 0, 13, 'AICC_CRM', NULL, NULL, NULL, NULL, NULL, NULL, 0, 'last_session_time', 'blank');
 INSERT INTO "CRM_CUSTOMER_COL" VALUES ('2574cc1a2c1c4a098746a2abd9c41acb', '首次电联时间', 'TEL_CONN_FIRST', 'default_type', 1, 0, 14, 'AICC_CRM', NULL, NULL, TO_DATE('2020-05-07 16:14:50', 'SYYYY-MM-DD HH24:MI:SS'), '001589263233452026317e1d5cb59a5d', 'admin', TO_DATE('2020-05-12 16:59:10', 'SYYYY-MM-DD HH24:MI:SS'), 0, 'first_call_time', 'blank');
@@ -951,7 +888,7 @@ CREATE TABLE "CRM_CUSTOMER_DATA"
     "ADDR"               VARCHAR2(255)  DEFAULT NULL,
     "PROPERTY"           VARCHAR2(50)   DEFAULT NULL,
     "PROPERTY_ID"        VARCHAR2(32)   DEFAULT NULL,
-    "LEVEL"              NUMBER(11)     DEFAULT 0,
+    "LEVEL_"              NUMBER(11)     DEFAULT 0,
     "SOURCE"             VARCHAR2(20) NOT NULL,
     "REMARKS"            VARCHAR2(2000) DEFAULT NULL,
     "LOCATION"           VARCHAR2(200)  DEFAULT NULL,
@@ -1032,7 +969,7 @@ COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."EMAIL" IS '客户联系邮箱';
 COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."ADDR" IS '客户地址';
 COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."PROPERTY" IS '客户属性中文名';
 COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."PROPERTY_ID" IS '客户属性ID/代码';
-COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."LEVEL" IS '客户等级：0-普通；1-VIP；默认为0';
+COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."LEVEL_" IS '客户等级：0-普通；1-VIP；默认为0';
 COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."SOURCE" IS '渠道，客户注册时的系统，必填';
 COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."REMARKS" IS '备注';
 COMMENT ON COLUMN "CRM_CUSTOMER_DATA"."LOCATION" IS '客户籍贯（归属地）';
@@ -1184,13 +1121,13 @@ COMMENT ON COLUMN "CRM_MENU"."DEL_FLAG" IS '删除标识：0-正常；1-逻辑�
 -- ----------------------------
 -- Records of CRM_MENU
 -- ----------------------------
-INSERT INTO "CRM_MENU" VALUES ('020970e746124feb852b6b58fd0fbee6', 'a63069b31756419881b4adc1f9bf4a17', 0, '客户查询', '1000.1001.1001', '/crm/client_mgr#findByPage', 1, '[{\"name\":\"仅可查看自己\",\"value\":\"SELF\"},{\"name\":\"可查看所在坐席组\",\"value\":\"GROUP\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"}]', NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO "CRM_MENU" VALUES ('020970e746124feb852b6b58fd0fbee6', 'a63069b31756419881b4adc1f9bf4a17', 0, '客户查询', '1000.1001.1001', '/crm/client_mgr#findByPage', 1, '[{"name":"仅可查看自己","value":"SELF"},{"name":"可查看所在坐席组","value":"GROUP"},{"name":"可查看所有","value":"ALL"}]', NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO "CRM_MENU" VALUES ('051306bd09ba4023abdbffa73e7d7e27', '3d68edf13fbd4df7a9662344f444f0ed', 0, '客户保存规则', '1000.1003.1004', '/crm/client_savingrules', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO "CRM_MENU" VALUES ('0fc2fc79def44ce695c95280bc07b7a9', 'a63069b31756419881b4adc1f9bf4a17', 2, '导入客户', '1000.1001.1003', '/crm/client_mgr/importGroup', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO "CRM_MENU" VALUES ('3d68edf13fbd4df7a9662344f444f0ed', '8ad30ad8050e441bbf53d05e5f10b613', 0, '设置管理', '1000.1003', '/crm/setting', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO "CRM_MENU" VALUES ('3ebbe99cf2164e068e17d9873ca169e9', 'ef5058693ccf400f9f9cdc8f29ec620c', 1, '导出客户', '1000.1001.1004.1001', '/crm/client_mgr#export', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO "CRM_MENU" VALUES ('576fe4b3cbc24989befca6042cbb7919', '3d68edf13fbd4df7a9662344f444f0ed', 0, '客户标签', '1000.1003.1002', '/crm/client_tag', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
-INSERT INTO "CRM_MENU" VALUES ('5c0cfbf9a8314a66a4fa8b9ea7c05e0c', '9fab0b45fd21482b9cad6a16226f4956', 0, '计划查询', '1000.1002.1001', '/crm/client_mgr', 1, '[{\"name\":\"仅可查看自己\",\"value\":\"SELF\"},{\"name\":\"可查看所在坐席组\",\"value\":\"GROUP\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"}]', NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO "CRM_MENU" VALUES ('5c0cfbf9a8314a66a4fa8b9ea7c05e0c', '9fab0b45fd21482b9cad6a16226f4956', 0, '计划查询', '1000.1002.1001', '/crm/client_mgr', 1, '[{"name":"仅可查看自己","value":"SELF"},{"name":"可查看所在坐席组","value":"GROUP"},{"name":"可查看所有","value":"ALL"}]', NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO "CRM_MENU" VALUES ('7473bdc852d24832b47d6907c95d6565', '3d68edf13fbd4df7a9662344f444f0ed', 0, '客户信息', '1000.1003.1001', '/crm/client_info', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO "CRM_MENU" VALUES ('784a67de5cf84ae5971cb9829afbf771', '941a7b5324724c0487c902584c5e0875', 1, '删除客户', '1000.1001.1005.1001', '/crm/client_mgr#deleteBatch', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO "CRM_MENU" VALUES ('7c75079cd1b04a29adba43969fe7934c', 'a63069b31756419881b4adc1f9bf4a17', 2, '创建联系计划', '1000.1001.1002', '/crm/client_mgr/planGroup', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
@@ -1318,17 +1255,21 @@ CREATE TABLE "ORDER_PERMISSION"
 -- ----------------------------
 -- Records of ORDER_PERMISSION
 -- ----------------------------
-INSERT INTO "ORDER_PERMISSION" VALUES ('1', NULL, '/order', 'order', '我的工单', NULL, 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('10', '1', '/order', 'wb', '坐席工作台', '坐席工作台选项', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('1', NULL, '/workorder', 'order', '我的工单', NULL, 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('10', '1', '/workorder', 'wb', '坐席工作台', '坐席工作台选项', 0, NULL, 'false');
 INSERT INTO "ORDER_PERMISSION" VALUES ('11', '1', '/order', 'bp', '企业管理台', '企业管理台选项', 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('20', '10', '/order/assignOrderRange', 'assign_order_range', '工单指派范围', '工单指派角色范围', 2, '[{\"name\":\"所有技能组\",\"value\":\"ALL\"},{\"name\":\"自定义技能组\",\"value\":\"zdykz\"}]', '');
-INSERT INTO "ORDER_PERMISSION" VALUES ('21', '10', '/order/assignOrder', 'assign_order', '工单指派', '是否有指派权限', 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('22', '10', '/order/createTemplate', 'create_template', '工单模板创建', '是否有权限创建模板', 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('23', '10', '/order/auditTemplate', 'audit_template', '工单模板审核', '是否有权限审核模板', 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('24', '10', '/order/deleteTemplate', 'delete_template', '工单模板删除', '是否有权限删除模板', 0, NULL, 'fasle');
-INSERT INTO "ORDER_PERMISSION" VALUES ('25', '10', '/order/editTemplate', 'update_template', '工单模板修改', '是否有权限修改模板', 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('26', '10', '/order/template', 'template', '工单模板', '是否显示工单模板菜单', 0, NULL, 'false');
-INSERT INTO "ORDER_PERMISSION" VALUES ('30', '11', '/order/template', 'template', '工单模板', '是否显示工单模板菜单', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('20', '10', '/assignOrderRange', 'assign_order_range', '工单指派范围', '工单指派角色范围', 2, '[{"name":"所有技能组","value":"ALL"},{"name":"自定义技能组","value":"zdykz"}]', '');
+INSERT INTO "ORDER_PERMISSION" VALUES ('21', '10', '/assignOrder', 'assign_order', '工单指派', '是否有指派权限', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('22', '10', '/createTemplate', 'create_template', '工单模板创建', '是否有权限创建模板', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('23', '10', '/auditTemplate', 'audit_template', '工单模板审核', '是否有权限审核模板', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('24', '10', '/deleteTemplate', 'delete_template', '工单模板删除', '是否有权限删除模板', 0, NULL, 'fasle');
+INSERT INTO "ORDER_PERMISSION" VALUES ('25', '10', '/editTemplate', 'update_template', '工单模板修改', '是否有权限修改模板', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('26', '10', '/workorder/listTemplate', 'template', '工单模板', '是否显示工单模板菜单', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('27', '10', '/workorder/finished', 'finished', '已完成工单', '是否显示已完成工单菜单', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('28', '10', '/workorder/processing', 'processing', '受理中工单', '是否显示受理中工单菜单', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('29', '10', '/workorder/replied', 'replied', '已回复工单', '是否显示已回复工单菜单', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('30', '10', '/workorder/processed', 'processed', '未受理工单', '是否显示未受理工单菜单', 0, NULL, 'false');
+INSERT INTO "ORDER_PERMISSION" VALUES ('50', '11', '/order/template', 'template', '工单模板', '是否显示工单模板菜单', 0, NULL, 'false');
 
 -- ----------------------------
 -- Table structure for ORDER_PERMISSION_ROLE
@@ -1488,7 +1429,7 @@ CREATE TABLE "QC_ACTION"
     "STATUS"       NUMBER(1)    DEFAULT NULL,
     "CODE"         VARCHAR2(32) DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32) DEFAULT NULL,
-    "UPDATED_TIME" DATE         DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP    DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1498,7 +1439,7 @@ CREATE TABLE "QC_ACTION"
 COMMENT ON TABLE "QC_ACTION" IS '质检行为';
 COMMENT ON COLUMN "QC_ACTION"."ID" IS 'ID';
 COMMENT ON COLUMN "QC_ACTION"."NAME" IS '名称';
-COMMENT ON COLUMN "QC_ACTION"."STATUS" IS '状态 0：关闭\N1：打开';
+COMMENT ON COLUMN "QC_ACTION"."STATUS" IS '状态 0：关闭 1：打开';
 COMMENT ON COLUMN "QC_ACTION"."CODE" IS '代码';
 COMMENT ON COLUMN "QC_ACTION"."UPDATED_BY" IS '更新人';
 COMMENT ON COLUMN "QC_ACTION"."UPDATED_TIME" IS '更新时间';
@@ -1517,9 +1458,9 @@ CREATE TABLE "QC_ITEMS"
     "SCORE"        NUMBER(11)    DEFAULT NULL,
     "TYPE"         NUMBER(1)     DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(32)  DEFAULT NULL,
-    "CREATED_TIME" DATE          DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32)  DEFAULT NULL,
-    "UPDATED_TIME" DATE          DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1530,11 +1471,11 @@ COMMENT ON TABLE "QC_ITEMS" IS '质检方案质检项';
 COMMENT ON COLUMN "QC_ITEMS"."ID" IS 'ID';
 COMMENT ON COLUMN "QC_ITEMS"."NAME" IS '名称';
 COMMENT ON COLUMN "QC_ITEMS"."PLAN_ID" IS '方案ID';
-COMMENT ON COLUMN "QC_ITEMS"."CLASSIFY" IS '项目分类 1：扣分项\N2：加分项\N3：致命项';
+COMMENT ON COLUMN "QC_ITEMS"."CLASSIFY" IS '项目分类 1：扣分项 2：加分项 3：致命项';
 COMMENT ON COLUMN "QC_ITEMS"."REMARK" IS '说明';
 COMMENT ON COLUMN "QC_ITEMS"."MODEL_ID" IS '模型ID';
 COMMENT ON COLUMN "QC_ITEMS"."SCORE" IS '分值';
-COMMENT ON COLUMN "QC_ITEMS"."TYPE" IS '类型 1：正向\N2：负向';
+COMMENT ON COLUMN "QC_ITEMS"."TYPE" IS '类型 1：正向 2：负向';
 COMMENT ON COLUMN "QC_ITEMS"."CREATED_BY" IS '创建人';
 COMMENT ON COLUMN "QC_ITEMS"."CREATED_TIME" IS '创建时间';
 COMMENT ON COLUMN "QC_ITEMS"."UPDATED_BY" IS '更新人';
@@ -1555,9 +1496,9 @@ CREATE TABLE "QC_LINK_NODE"
     "FLAG_TRIGGER"  NUMBER(1)     DEFAULT NULL,
     "WEIGHT"        DECIMAL(4, 2) DEFAULT NULL,
     "CREATED_BY"    VARCHAR2(128) DEFAULT NULL,
-    "CREATED_TIME"  DATE          DEFAULT NULL,
+    "CREATED_TIME"  TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"    VARCHAR2(128) DEFAULT NULL,
-    "UPDATED_TIME"  DATE          DEFAULT NULL,
+    "UPDATED_TIME"  TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1567,12 +1508,12 @@ CREATE TABLE "QC_LINK_NODE"
 COMMENT ON TABLE "QC_LINK_NODE" IS '质检环节中的节点表';
 COMMENT ON COLUMN "QC_LINK_NODE"."ID" IS 'ID';
 COMMENT ON COLUMN "QC_LINK_NODE"."NAME" IS '节点名';
-COMMENT ON COLUMN "QC_LINK_NODE"."TYPE" IS '节点类型 1：选择\n2：非选择\n3：槽位';
+COMMENT ON COLUMN "QC_LINK_NODE"."TYPE" IS '节点类型 1：选择 2：非选择 3：槽位';
 COMMENT ON COLUMN "QC_LINK_NODE"."PARENT_ID" IS '父级节点id';
 COMMENT ON COLUMN "QC_LINK_NODE"."LINK_ID" IS '环节id';
-COMMENT ON COLUMN "QC_LINK_NODE"."FLAG_NAV_LINK" IS '是否节点跳转 0：非跳转节点\n1：跳转节点';
+COMMENT ON COLUMN "QC_LINK_NODE"."FLAG_NAV_LINK" IS '是否节点跳转 0：非跳转节点 1：跳转节点';
 COMMENT ON COLUMN "QC_LINK_NODE"."NAV_LINK_ID" IS '节点跳转-环节id';
-COMMENT ON COLUMN "QC_LINK_NODE"."FLAG_TRIGGER" IS '是否触发节点 0：非触发节点\n1：触发节点';
+COMMENT ON COLUMN "QC_LINK_NODE"."FLAG_TRIGGER" IS '是否触发节点 0：非触发节点 1：触发节点';
 COMMENT ON COLUMN "QC_LINK_NODE"."WEIGHT" IS '权重';
 COMMENT ON COLUMN "QC_LINK_NODE"."CREATED_BY" IS '创建人id';
 COMMENT ON COLUMN "QC_LINK_NODE"."CREATED_TIME" IS '创建时间';
@@ -1599,9 +1540,9 @@ CREATE TABLE "QC_MENU"
     "DISPLAY_TYPE" NUMBER(11)     DEFAULT NULL,
     "IS_SHOW"      NUMBER(1)      DEFAULT NULL,
     "CREATOR"      VARCHAR2(32)   DEFAULT NULL,
-    "CREATE_TIME"  DATE           DEFAULT NULL,
+    "CREATE_TIME"  TIMESTAMP      DEFAULT NULL,
     "EDITOR"       VARCHAR2(32)   DEFAULT NULL,
-    "EDIT_TIME"    DATE           DEFAULT NULL,
+    "EDIT_TIME"    TIMESTAMP      DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1631,9 +1572,9 @@ COMMENT ON COLUMN "QC_MENU"."EDIT_TIME" IS '更新时间';
 -- ----------------------------
 -- Records of QC_MENU
 -- ----------------------------
-INSERT INTO "QC_MENU" VALUES ('100000', '\r\n', '智能质检', '/qc', '/qc', 0, NULL, '1000', NULL, '开启后角色可访问智能质检', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "QC_MENU" VALUES ('100000', NULL, '智能质检', '/qc', '/qc', 0, NULL, '1000', NULL, '开启后角色可访问智能质检', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "QC_MENU" VALUES ('101000', '100000', '业务建模', '/qc/businessModeling', '/qc/model', 0, NULL, '1000.1000', NULL, '开启后角色可访问业务建模页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "QC_MENU" VALUES ('101100', '101000', '生效技能组', 'effectGroup', 'effectGroup', 2, NULL, '1000.1000.1000L', '[{\"name\":\"可查看所属技能组\",\"value\":\"ckssjnz\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"},{\"name\":\"自定义跨组查看\",\"value\":\"zdykz\"}]', '开启后角色可浏览业务建模的技能组范围', 'aicc_bp', NULL, 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "QC_MENU" VALUES ('101100', '101000', '生效技能组', 'effectGroup', 'effectGroup', 2, NULL, '1000.1000.1000L', '[{"name":"可查看所属技能组","value":"ckssjnz"},{"name":"可查看所有","value":"ALL"},{"name":"自定义跨组查看","value":"zdykz"}]', '开启后角色可浏览业务建模的技能组范围', 'aicc_bp', NULL, 2, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "QC_MENU" VALUES ('101200', '101000', '模型类型', 'modelType', 'modelType', 1, NULL, '1000.1000.1001', NULL, '开启后角色可访问模型类型', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "QC_MENU" VALUES ('101210', '101200', '行为模型', 'actionModel', 'actionModel', 1, NULL, '1000.1000.1001.1000L', NULL, '开启后角色可访问行为模型', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "QC_MENU" VALUES ('101220', '101200', '语义模型', 'semanticModel', 'semanticModel', 1, NULL, '1000.1000.1001.1001L', NULL, '开启后角色可访问语义模型', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
@@ -1666,7 +1607,7 @@ INSERT INTO "QC_MENU" VALUES ('102200', '102000', '行为设置', '/qc/serviceMa
 INSERT INTO "QC_MENU" VALUES ('102210', '102200', '编辑', '', '/mgr/setting/behaviorSettings_put', 1, NULL, '1000.1001.1001.1000L', NULL, '开启后角色可编辑行为设置', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "QC_MENU" VALUES ('103000', '100000', '分析报表', '/qc/analysisReport', 'analysisReport', 0, NULL, '1000.1002', NULL, '开启后角色可访问分析报表页面', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "QC_MENU" VALUES ('103100', '103000', '实时质检报表', '/qc/analysisReport/qcRealTimeReport', '/mgr/realTimeReport/qcLog_get', 0, NULL, '1000.1002.1000', '', '开启后角色可查看实时质检报表', 'aicc_bp', NULL, 0, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "QC_MENU" VALUES ('103110', '103100', '实时质检报表查看范围', 'qcRealTimeReportRange', 'qcRealTimeReportRange', 2, NULL, '1000.1002.1000.1000L', '[{\"name\":\"仅可查看自己\",\"value\":\"jkckzj\"},{\"name\":\"可查看所属技能组\",\"value\":\"ckssjnz\"},{\"name\":\"可查看所有\",\"value\":\"ALL\"},{\"name\":\"自定义跨组查看\",\"value\":\"zdykz\"}]', '设定角色可查询实时质检报表范围', 'aicc_bp', NULL, 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "QC_MENU" VALUES ('103110', '103100', '实时质检报表查看范围', 'qcRealTimeReportRange', 'qcRealTimeReportRange', 2, NULL, '1000.1002.1000.1000L', '[{"name":"仅可查看自己","value":"jkckzj"},{"name":"可查看所属技能组","value":"ckssjnz"},{"name":"可查看所有","value":"ALL"},{"name":"自定义跨组查看","value":"zdykz"}]', '设定角色可查询实时质检报表范围', 'aicc_bp', NULL, 2, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for QC_MODEL
@@ -1687,9 +1628,9 @@ CREATE TABLE "QC_MODEL"
     "SKILL_GROUP_ID"    VARCHAR2(32)  DEFAULT NULL,
     "FLAG_PUBLISH"      NUMBER(1)     DEFAULT NULL,
     "CREATED_BY"        VARCHAR2(32)  DEFAULT NULL,
-    "CREATED_TIME"      DATE          DEFAULT NULL,
+    "CREATED_TIME"      TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"        VARCHAR2(32)  DEFAULT NULL,
-    "UPDATED_TIME"      DATE          DEFAULT NULL,
+    "UPDATED_TIME"      TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1698,18 +1639,18 @@ CREATE TABLE "QC_MODEL"
 -- ----------------------------
 COMMENT ON TABLE "QC_MODEL" IS '质检模型表';
 COMMENT ON COLUMN "QC_MODEL"."ID" IS 'ID';
-COMMENT ON COLUMN "QC_MODEL"."QC_TYPE" IS '质检类型 0：默认，事后质检\n1：实时质检';
-COMMENT ON COLUMN "QC_MODEL"."TYPE" IS '模型类型 0：默认，语义模型\n1：行为模型\n2：高级模型';
+COMMENT ON COLUMN "QC_MODEL"."QC_TYPE" IS '质检类型 0：默认，事后质检 1：实时质检';
+COMMENT ON COLUMN "QC_MODEL"."TYPE" IS '模型类型 0：默认，语义模型 1：行为模型 2：高级模型';
 COMMENT ON COLUMN "QC_MODEL"."GROUP_ID" IS '模型组别';
 COMMENT ON COLUMN "QC_MODEL"."NAME" IS '名称';
 COMMENT ON COLUMN "QC_MODEL"."REMARK" IS '备注';
-COMMENT ON COLUMN "QC_MODEL"."ATTR_ROLE" IS '模型属性-所属角色 0：默认-客户或者坐席\n1：客户\n2：坐席';
-COMMENT ON COLUMN "QC_MODEL"."ATTR_POS" IS '模型属性-位置 0：默认，任意位置\n1：会话初\n2：会话末';
+COMMENT ON COLUMN "QC_MODEL"."ATTR_ROLE" IS '模型属性-所属角色 0：默认-客户或者坐席1：客户2：坐席';
+COMMENT ON COLUMN "QC_MODEL"."ATTR_POS" IS '模型属性-位置 0：默认，任意位置1：会话初2：会话末';
 COMMENT ON COLUMN "QC_MODEL"."ATTR_POS_VALUE" IS '模型属性-位置值';
 COMMENT ON COLUMN "QC_MODEL"."ATTR_ACTION_ID" IS '模型属性-行为类别';
 COMMENT ON COLUMN "QC_MODEL"."ATTR_ACTION_VALUE" IS '模型属性-行为类别值';
 COMMENT ON COLUMN "QC_MODEL"."SKILL_GROUP_ID" IS '生效客服组';
-COMMENT ON COLUMN "QC_MODEL"."FLAG_PUBLISH" IS '是否发布 0：默认，未发布\n1：发布';
+COMMENT ON COLUMN "QC_MODEL"."FLAG_PUBLISH" IS '是否发布 0：默认，未发布1：发布';
 COMMENT ON COLUMN "QC_MODEL"."CREATED_BY" IS '创建人';
 COMMENT ON COLUMN "QC_MODEL"."CREATED_TIME" IS '创建时间';
 COMMENT ON COLUMN "QC_MODEL"."UPDATED_BY" IS '更新人';
@@ -1725,9 +1666,9 @@ CREATE TABLE "QC_MODEL_GROUP"
     "PARENT_ID"    VARCHAR2(32)  DEFAULT NULL,
     "BH"           VARCHAR2(128) DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(128) DEFAULT NULL,
-    "CREATED_TIME" DATE          DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(128) DEFAULT NULL,
-    "UPDATED_TIME" DATE          DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1753,9 +1694,9 @@ CREATE TABLE "QC_MODEL_LINK"
     "NAME"         VARCHAR2(32) DEFAULT NULL,
     "MODEL_ID"     VARCHAR2(32) DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(32) DEFAULT NULL,
-    "CREATED_TIME" DATE         DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP    DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32) DEFAULT NULL,
-    "UPDATED_TIME" DATE         DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP    DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1780,9 +1721,9 @@ CREATE TABLE "QC_MODEL_RULES"
     "RULE"         VARCHAR2(3072) DEFAULT NULL,
     "MODEL_ID"     VARCHAR2(32)   DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(32)   DEFAULT NULL,
-    "CREATED_TIME" DATE           DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP      DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32)   DEFAULT NULL,
-    "UPDATED_TIME" DATE           DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP      DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1819,9 +1760,9 @@ CREATE TABLE "QC_NODE_MODEL_RELATION"
     "MODAL_ID"     VARCHAR2(32) DEFAULT NULL,
     "RELATION"     NUMBER(1)    DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(32) DEFAULT NULL,
-    "CREATED_TIME" DATE         DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP    DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32) DEFAULT NULL,
-    "UPDATED_TIME" DATE         DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP    DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1832,7 +1773,7 @@ COMMENT ON TABLE "QC_NODE_MODEL_RELATION" IS '质检节点中引用的模型关�
 COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."ID" IS 'ID';
 COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."NODE_ID" IS '节点ID';
 COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."MODAL_ID" IS '模型ID';
-COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."RELATION" IS '关系 0：and（默认）\n1：or';
+COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."RELATION" IS '关系 0：and（默认）1：or';
 COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."CREATED_BY" IS '创建人';
 COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."CREATED_TIME" IS '创建时间';
 COMMENT ON COLUMN "QC_NODE_MODEL_RELATION"."UPDATED_BY" IS '更新人';
@@ -1849,9 +1790,9 @@ CREATE TABLE "QC_PLAN"
     "DEDUCT_LIMIT" NUMBER(11)    DEFAULT NULL,
     "BONUS_LIMIT"  NUMBER(11)    DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(32)  DEFAULT NULL,
-    "CREATED_TIME" DATE          DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32)  DEFAULT NULL,
-    "UPDATED_TIME" DATE          DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1931,9 +1872,9 @@ CREATE TABLE "QC_TASK"
     "STATUS"         NUMBER(1)     DEFAULT NULL,
     "SKILL_GROUP_ID" VARCHAR2(32)  DEFAULT NULL,
     "CREATED_BY"     VARCHAR2(32)  DEFAULT NULL,
-    "CREATED_TIME"   DATE          DEFAULT NULL,
+    "CREATED_TIME"   TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"     VARCHAR2(32)  DEFAULT NULL,
-    "UPDATED_TIME"   DATE          DEFAULT NULL,
+    "UPDATED_TIME"   TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1964,9 +1905,9 @@ CREATE TABLE "QC_URL_LIST"
     "TYPE"         NUMBER(1)     DEFAULT NULL,
     "MODEL_ID"     VARCHAR2(32)  DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(32)  DEFAULT NULL,
-    "CREATED_TIME" DATE          DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(32)  DEFAULT NULL,
-    "UPDATED_TIME" DATE          DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -1976,7 +1917,7 @@ CREATE TABLE "QC_URL_LIST"
 COMMENT ON TABLE "QC_URL_LIST" IS '质检url黑白名单';
 COMMENT ON COLUMN "QC_URL_LIST"."ID" IS 'ID';
 COMMENT ON COLUMN "QC_URL_LIST"."URL" IS '链接地址';
-COMMENT ON COLUMN "QC_URL_LIST"."TYPE" IS '类型 0：黑名单\n1：白名单';
+COMMENT ON COLUMN "QC_URL_LIST"."TYPE" IS '类型 0：黑名单 1：白名单';
 COMMENT ON COLUMN "QC_URL_LIST"."MODEL_ID" IS '模型ID';
 COMMENT ON COLUMN "QC_URL_LIST"."CREATED_BY" IS '创建人';
 COMMENT ON COLUMN "QC_URL_LIST"."CREATED_TIME" IS '创建时间';
@@ -1993,9 +1934,9 @@ CREATE TABLE "QC_WORDCLASS"
     "WORDS"              VARCHAR2(3072) DEFAULT NULL,
     "WORDCLASS_GROUP_ID" VARCHAR2(32)   DEFAULT NULL,
     "CREATED_BY"         VARCHAR2(128)  DEFAULT NULL,
-    "CREATED_TIME"       DATE           DEFAULT NULL,
+    "CREATED_TIME"       TIMESTAMP      DEFAULT NULL,
     "UPDATED_BY"         VARCHAR2(128)  DEFAULT NULL,
-    "UPDATED_TIME"       DATE           DEFAULT NULL,
+    "UPDATED_TIME"       TIMESTAMP      DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -2022,9 +1963,9 @@ CREATE TABLE "QC_WORDCLASS_GROUP"
     "PARENT_ID"    VARCHAR2(32)  DEFAULT NULL,
     "BH"           VARCHAR2(128) DEFAULT NULL,
     "CREATED_BY"   VARCHAR2(128) DEFAULT NULL,
-    "CREATED_TIME" DATE          DEFAULT NULL,
+    "CREATED_TIME" TIMESTAMP     DEFAULT NULL,
     "UPDATED_BY"   VARCHAR2(128) DEFAULT NULL,
-    "UPDATED_TIME" DATE          DEFAULT NULL,
+    "UPDATED_TIME" TIMESTAMP     DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -2048,9 +1989,10 @@ CREATE TABLE "QUICK_REPLY"
 (
     "ID"      VARCHAR2(32) NOT NULL,
     "USER_ID" VARCHAR2(32)  DEFAULT NULL,
-    "MESSAGE" VARCHAR2(255) DEFAULT NULL,
-    "TYPE"    NUMBER(1)     DEFAULT 1,
-    "NUM"     NUMBER(2)     DEFAULT NULL,
+    "MESSAGE" VARCHAR2(500) DEFAULT NULL,
+    "SKILL_GROUP_ID" VARCHAR2(255) DEFAULT NULL,
+    "CREATE_TIME" TIMESTAMP       DEFAULT NULL,
+    "CATEGORY" VARCHAR2(10) DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -2061,22 +2003,9 @@ COMMENT ON TABLE "QUICK_REPLY" IS '快捷回复';
 COMMENT ON COLUMN "QUICK_REPLY"."ID" IS 'ID';
 COMMENT ON COLUMN "QUICK_REPLY"."USER_ID" IS '坐席ID';
 COMMENT ON COLUMN "QUICK_REPLY"."MESSAGE" IS '回复语';
-COMMENT ON COLUMN "QUICK_REPLY"."TYPE" IS '类型：0-系统，1-个人';
-COMMENT ON COLUMN "QUICK_REPLY"."NUM" IS '回复语的编号，有序';
-
--- ----------------------------
--- Records of QUICK_REPLY
--- ----------------------------
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b1', NULL, '给您带来不好的感受我们深感抱歉。', 0, 1);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b2', NULL, '我非常理解您的心情。', 0, 2);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b3', NULL, '我理解您怎么会生气，换成是我也会跟您一样的感受。', 0, 3);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b4', NULL, '请您不要着急，我非常理解您的心情，我们一定会竭尽全力为您解决的。', 0, 4);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b5', NULL, '我非常理解您的心情，请放心，我们一定查证清楚，然后给您回复。', 0, 5);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b6', NULL, '由于这个原因，给您带来的不便，深表歉意。', 0, 6);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b7', NULL, '这个问题需要查询一下，请您稍等一下好吗？', 0, 7);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b8', NULL, '感谢您的耐心等待。', 0, 8);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121b9', NULL, '非常感谢您提出的宝贵建议，我们会向上反映，因为有了您的建议，我们才会不断进步。', 0, 9);
-INSERT INTO "QUICK_REPLY" VALUES ('016ce873d1d34006931dc6668cd121ba', NULL, '感谢您对我们公司的支持，您反馈的建议，将成为我们公司日后改进工作的重要参考内容。', 0, 10);
+COMMENT ON COLUMN "QUICK_REPLY"."SKILL_GROUP_ID" IS '技能组ID';
+COMMENT ON COLUMN "QUICK_REPLY"."CREATE_TIME" IS '创建时间';
+COMMENT ON COLUMN "QUICK_REPLY"."CATEGORY" IS '回复语分类';
 
 -- ----------------------------
 -- Table structure for SYS_ACD
@@ -2323,6 +2252,11 @@ CREATE TABLE "SYS_ACD_X_SKILL_GROUP"
 );
 
 -- ----------------------------
+-- RECORDS OF SYS_ACD_X_SKILL_GROUP
+-- ----------------------------
+INSERT INTO "SYS_ACD_X_SKILL_GROUP" VALUES ('001608901998574000630242fcb8ef01', '061505e3d58000159671DEFALUTBIZ00', 0, '0015870307129860015100155d4c6010');
+
+-- ----------------------------
 -- comment for SYS_ACD_X_SKILL_GROUP
 -- ----------------------------
 COMMENT ON COLUMN "SYS_ACD_X_SKILL_GROUP"."ID" IS 'id';
@@ -2357,7 +2291,7 @@ COMMENT ON COLUMN "SYS_CUS_FIELD"."ID" IS '主键ID';
 COMMENT ON COLUMN "SYS_CUS_FIELD"."NAME" IS '字段名称';
 COMMENT ON COLUMN "SYS_CUS_FIELD"."TAG" IS '字段标识';
 COMMENT ON COLUMN "SYS_CUS_FIELD"."TAG_LEVEL" IS '字段等级(系统默认default/系统预置preset/普通字段null)';
-COMMENT ON COLUMN "SYS_CUS_FIELD"."TYPE" IS '字段类型 textfield/textarea/select/multi_select/radio/checkbox';
+COMMENT ON COLUMN "SYS_CUS_FIELD"."TYPE" IS '字段类型 textfield单行文本/textarea多行文本/number数字/select下拉列表/radio单选菜单/multi_select复选或标签/datatimepicker时间选择器';
 COMMENT ON COLUMN "SYS_CUS_FIELD"."DESCRIPTION" IS '字段描述';
 COMMENT ON COLUMN "SYS_CUS_FIELD"."CREATOR" IS '创建人';
 COMMENT ON COLUMN "SYS_CUS_FIELD"."CATEGORY_CODE" IS '字段分类(默认分类default/工单管理workorder/客户管理customer)';
@@ -2368,32 +2302,33 @@ COMMENT ON COLUMN "SYS_CUS_FIELD"."EDIT_TIME" IS '编辑时间';
 -- ----------------------------
 -- Records of SYS_CUS_FIELD
 -- ----------------------------
-INSERT INTO "SYS_CUS_FIELD" VALUES ('156ce873d1d34006931dc6668cd12abe', '工单备注', 'workorder_remark', 'default', 'textarea', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 13:51:02', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:51:02', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('1f5c3e23434343e2b39d92d04e2eb8f2', '工单归属', 'workorder_owner', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 13:18:13', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:18:13', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('23deb9732ca145dcaae8ab4d08b5742f', '来源终端', 'terminal', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:51:11', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:51:11', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('2f47b055346a4f0a8637411e864ac837', '首次电话联系时间', 'first_call_time', 'default', 'datatimepicker', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:55:05', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:55:05', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('3322ec8d65a64dc38e3fa5100fe6da9b', '地址', 'address', 'default', 'textarea', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:49:51', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:49:51', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('37c223ab5d4d454fb82fff5982f24431', '动态用户名', '{{userId}}', 'default', 'textfield_dynamic', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-18 16:17:36', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-18 16:17:36', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('38dfd8b42680495c9488034fa0ef7552', '手机', 'mobile', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:35:05', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:35:05', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('3b4526f278b147e8b261fe49bdf28407', '工单类型', 'workorder_type', 'default', 'select', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 13:21:48', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:21:48', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('3ccbbc5dd05649898f36777124c6a312', '邮箱', 'email', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:47:45', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:47:45', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('576e177d32c7420ab721e2b1e6bf60d2', '业务类型', 'business_type', 'default', 'select', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 13:13:57', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:13:57', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('65b23ece32ff4213b0c2c11a8a7873ed', '负责人', 'director', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'public', TO_DATE('2020-04-17 11:53:07', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:53:07', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('68ff5b3af4544cb5b3a41f880ab1c24c', '工单有效时间', 'workorder_valid_time', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 17:39:14', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 17:39:14', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('8c25679414ed48e8a4c3a4358a06d3b0', '客户等级', 'level', 'default', 'select', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:43:23', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-05-09 09:16:14', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('93975c9d0521497399460d100a97da20', '工单责任人', 'workorder_director', 'default', 'select_dynamic', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 13:19:04', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:19:04', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('961709bb96ce42f585119e8c5823e0e7', '最后一次电话联系时间', 'last_call_time', 'default', 'datatimepicker', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:54:24', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:54:24', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('a22ac17c27c945b78b4dd3f6e0707ab4', '工单创建人', 'workorder_creator', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 13:19:52', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:19:52', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('b82b0b99f0e44b579f01fe8956cc4990', '首次会话时间', 'first_session_time', 'default', 'datatimepicker', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:56:43', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:56:43', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('cf8fa5a9cfb54cfc9e65cce2eef11825', '最后一次会话时间', 'last_session_time', 'default', 'datatimepicker', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:56:13', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:56:13', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('d78e0379ae0d4c88857b9b6c5decb97d', '姓名', 'name', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:34:34', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:34:34', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('e5cd4be53925446880b6f3d624bdf9b2', '访客备注', 'visitor_remark', 'default', 'textarea', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:49:03', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:49:03', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('e722c640ec904909ba2ffbe7f092769c', '访客渠道', 'platform', 'default', 'select_dynamic', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 13:53:14', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:53:14', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('e895e1275a4f4dd8a77a30bc2b02aa7a', '客户属性', 'customer_property', 'preset', 'multi_select', '系统默认类型', '0015849442017540000000155d4c6010', 'customer', TO_DATE('2020-04-17 11:47:18', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-05-07 17:58:25', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('f4a19e9cd6114b1282d7adc7f97706d0', '创建时间', 'create_time', 'default', 'datatimepicker', '系统默认类型', '0015849442017540000000155d4c6010', 'public', TO_DATE('2020-04-17 11:57:32', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:57:32', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('f509265f583e49ada43faf9942e8704b', '工单指派', 'workorder_assignee', 'default', 'select_dynamic', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-04-17 13:21:47', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 13:21:47', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('fe7e3973dc2d4fbe97b42ac69edbdfbc', '更新时间', 'update_time', 'default', 'datatimepicker', '系统默认类型', '0015849442017540000000155d4c6010', 'public', TO_DATE('2020-04-17 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-04-17 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'));
-INSERT INTO "SYS_CUS_FIELD" VALUES ('feac1563bb644ec8852b24a28e5177d1', '工单售后', 'workorder_after_sale', 'default', 'textfield', '系统默认类型', '0015849442017540000000155d4c6010', 'workorder', TO_DATE('2020-05-13 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'), '0015849442017540000000155d4c6010', TO_DATE('2020-05-17 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('156ce873d1d34006931dc6668cd12abe', '工单备注', 'workorder_remark', 'default', 'textarea', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 13:51:02', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:51:02', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('1f5c3e23434343e2b39d92d04e2eb8f2', '工单归属', 'workorder_owner', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 13:18:13', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:18:13', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('23deb9732ca145dcaae8ab4d08b5742f', '来源终端', 'terminal', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:51:11', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:51:11', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('2f47b055346a4f0a8637411e864ac837', '首次电话联系时间', 'first_call_time', 'default', 'datatimepicker', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:55:05', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:55:05', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('3322ec8d65a64dc38e3fa5100fe6da9b', '地址', 'address', 'default', 'textarea', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:49:51', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:49:51', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('37c223ab5d4d454fb82fff5982f24431', '动态用户名', '{{userId}}', 'default', 'textfield_dynamic', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-18 16:17:36', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-18 16:17:36', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('38dfd8b42680495c9488034fa0ef7552', '手机', 'mobile', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:35:05', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:35:05', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('3b4526f278b147e8b261fe49bdf28407', '工单类型', 'workorder_type', 'default', 'select', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 13:21:48', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:21:48', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('3ccbbc5dd05649898f36777124c6a312', '邮箱', 'email', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:47:45', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:47:45', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('576e177d32c7420ab721e2b1e6bf60d2', '业务类型', 'business_type', 'default', 'select', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 13:13:57', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:13:57', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('65b23ece32ff4213b0c2c11a8a7873ed', '负责人', 'director', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'public', TO_DATE('2020-04-17 11:53:07', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:53:07', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('68ff5b3af4544cb5b3a41f880ab1c24c', '工单有效时间', 'workorder_valid_time', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 17:39:14', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 17:39:14', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('8c25679414ed48e8a4c3a4358a06d3b0', '客户等级', 'level', 'default', 'select', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:43:23', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-05-09 09:16:14', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('93975c9d0521497399460d100a97da20', '工单责任人', 'workorder_director', 'default', 'select_dynamic', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 13:19:04', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:19:04', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('961709bb96ce42f585119e8c5823e0e7', '最后一次电话联系时间', 'last_call_time', 'default', 'datatimepicker', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:54:24', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:54:24', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('a22ac17c27c945b78b4dd3f6e0707ab4', '工单创建人', 'workorder_creator', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 13:19:52', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:19:52', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('b82b0b99f0e44b579f01fe8956cc4990', '首次会话时间', 'first_session_time', 'default', 'datatimepicker', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:56:43', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:56:43', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('cf8fa5a9cfb54cfc9e65cce2eef11825', '最后一次会话时间', 'last_session_time', 'default', 'datatimepicker', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:56:13', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:56:13', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('d78e0379ae0d4c88857b9b6c5decb97d', '姓名', 'name', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:34:34', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:34:34', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('e5cd4be53925446880b6f3d624bdf9b2', '访客备注', 'visitor_remark', 'default', 'textarea', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:49:03', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:49:03', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('e722c640ec904909ba2ffbe7f092769c', '访客渠道', 'platform', 'default', 'select_dynamic', '系统默认类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 13:53:14', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:53:14', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('e895e1275a4f4dd8a77a30bc2b02aa7a', '客户属性', 'customer_property', 'preset', 'multi_select', '系统预置类型', '27e55a01b74342189b000000000admin', 'customer', TO_DATE('2020-04-17 11:47:18', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-05-07 17:58:25', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('f4a19e9cd6114b1282d7adc7f97706d0', '创建时间', 'create_time', 'default', 'datatimepicker', '系统默认类型', '27e55a01b74342189b000000000admin', 'public', TO_DATE('2020-04-17 11:57:32', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:57:32', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('f509265f583e49ada43faf9942e8704b', '工单指派', 'workorder_assignee', 'default', 'select_dynamic', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-04-17 13:21:47', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 13:21:47', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('fe7e3973dc2d4fbe97b42ac69edbdfbc', '更新时间', 'update_time', 'default', 'datatimepicker', '系统默认类型', '27e55a01b74342189b000000000admin', 'public', TO_DATE('2020-04-17 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-04-17 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('feac1563bb644ec8852b24a28e5177d1', '工单售后', 'workorder_after_sale', 'default', 'textfield', '系统默认类型', '27e55a01b74342189b000000000admin', 'workorder', TO_DATE('2020-05-13 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-05-17 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SYS_CUS_FIELD" VALUES ('f6a18e9cd6114b1382d9dac7f98806c0', '会话标签', 'log_session_tag', 'preset', 'multi_select', '系统预置类型', '27e55a01b74342189b000000000admin', 'public', TO_DATE('2020-10-13 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'), '27e55a01b74342189b000000000admin', TO_DATE('2020-10-13 11:57:10', 'SYYYY-MM-DD HH24:MI:SS'));
 
 -- ----------------------------
 -- Table structure for SYS_CUS_FIELD_CATE
@@ -2488,6 +2423,8 @@ INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad71003', '技
 INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad72000', '系统', 99999, 2000, 'aicc-bp');
 INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad72001', '自定义字段', 2000, 2001, 'aicc-bp');
 INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad72002', '操作记录', 2000, 2002, 'aicc-bp');
+INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad72003', '路由策略应用', 2000, 2003, 'aicc-bp');
+INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad72004', '路由策略管理', 2000, 2004, 'aicc-bp');
 INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad73000', '客户', 99999, 3000, 'aicc-crm');
 INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad73001', '客户管理', 3000, 3001, 'aicc-crm');
 INSERT INTO "SYS_OP_LOG_MODULE" VALUES ('9a7852301a224d189d9c76450ad73002', '计划管理', 3000, 3002, 'aicc-crm');
@@ -2552,6 +2489,7 @@ CREATE TABLE "SYS_PLATFORM_DETAIL"
     "PLATFORM_TAG"  VARCHAR2(100) DEFAULT NULL,
     "PLATFORM_NAME" VARCHAR2(100) DEFAULT NULL,
     "SPA_ID"        VARCHAR2(32)  DEFAULT NULL,
+    "DIMENSION"     VARCHAR2(1000) DEFAULT NULL,
     PRIMARY KEY ("ID")
 );
 
@@ -2562,6 +2500,7 @@ COMMENT ON COLUMN "SYS_PLATFORM_DETAIL"."ID" IS '主键';
 COMMENT ON COLUMN "SYS_PLATFORM_DETAIL"."PLATFORM_TAG" IS '平台标签';
 COMMENT ON COLUMN "SYS_PLATFORM_DETAIL"."PLATFORM_NAME" IS '平台名称';
 COMMENT ON COLUMN "SYS_PLATFORM_DETAIL"."SPA_ID" IS '渠道应用策略主表ID';
+COMMENT ON COLUMN "SYS_PLATFORM_DETAIL"."DIMENSION" IS '维度信息';
 
 -- ----------------------------
 -- Table structure for SYS_PLATFORM_SOURCE
