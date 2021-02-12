@@ -18,3 +18,8 @@
 不过navicat导出的语句中，可能包含了类似【CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI】等字符，且mysql,oracle，sqlServer三者导出的数据各有不同。
 为了sql显得干净清晰统一，建议手动去除，就像当前在模板里包含的那样子。
 当然，如果你想偷懒，也可以不去管他们，直接一键导出一键复制粘贴使用。
+
+### 四、使用说明
+如果你是【单租户环境】部署/更新/升级，则只需要改一改jdbc.properties文件里头得到地址即可使用，然后执行App类的main函数即可
+如果你是【多租户环境】部署/更新/升级，则需要自己实现DbToolsConfig接口里的方法，保证每次调用校验器的validateTables方法时，该实现类的getJdbcTemplate方法已经完成租户库的切库即可。
+多租户环境新建校验器的时候，使用自己的那个DbToolsConfig实现类，而不再使用StandaloneDbToolsConfig。
