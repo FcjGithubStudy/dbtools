@@ -12,3 +12,9 @@
 ##### 典型案例:
 某句sql建表语句中,注释说明里有【acceptType=images/*】
 程序会将/*识别为注释,则可能导致后面的sql直接无法执行或陷入正则死循环
+
+### 三、关于sql解析规则
+校验器初衷是：navicat一键导出的mysql语句，可以直接复制粘贴。这样方便维护。
+不过navicat导出的语句中，可能包含了类似【CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI】等字符，且mysql,oracle，sqlServer三者导出的数据各有不同。
+为了sql显得干净清晰统一，建议手动去除，就像当前在模板里包含的那样子。
+当然，如果你想偷懒，也可以不去管他们，直接一键导出一键复制粘贴使用。

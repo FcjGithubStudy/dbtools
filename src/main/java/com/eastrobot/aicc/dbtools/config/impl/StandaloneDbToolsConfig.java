@@ -95,8 +95,7 @@ public class StandaloneDbToolsConfig implements DbToolsConfig {
     public void executeExtraSqlInTheEnd() {
         log.info("<====== 结尾额外扩展逻辑执行开始 ======>\n\n");
         JdbcTemplate jdbcTemplate = getJdbcTemplate();
-        // 单租户环境,隐藏侧边栏【渠道】大菜单，因为【路由策略应用】和侧边栏大菜单【渠道】只能显示其中一个
-        jdbcTemplate.update("UPDATE AUTH_MENU SET IS_SHOW = 0 WHERE ID = '40000'");
+        // 做一些额外的逻辑
         log.info("<====== 结尾额外扩展逻辑执行结束 ======>\n\n");
     }
 
