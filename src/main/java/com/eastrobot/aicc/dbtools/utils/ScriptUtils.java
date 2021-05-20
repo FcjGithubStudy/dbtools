@@ -48,11 +48,6 @@ public class ScriptUtils {
     public static final String[] DEFAULT_LINE_COMMENT_PREFIXES = new String[]{"--"};
 
     /**
-     * 块级注释匹配专用正则:包含了3种注释正则(//、/*、/**),其中(配合replaceAll(regex,"")方法可以全局替换一个脚本中的块级注释,很强大)
-     */
-    public static final String BLOCK_COMMENT_MATCH_REGEX = "\\/\\*([^\\*^\\/]*|[\\*^\\/*]*|[^\\**\\/]*)*\\*+\\/|\\/\\/[^\\n]*";
-
-    /**
      * 从sql脚本中读取出所有【有效语句】,并分句封装至集合中
      *
      * @param resource sql脚本文件
@@ -108,10 +103,8 @@ public class ScriptUtils {
                 e.printStackTrace();
             }
         }
-        // 【筛除机制2】：全局替换【块级注释】脚本语句,得到完整sql脚本
-        String totalScript = scriptBuilder.toString().replaceAll(BLOCK_COMMENT_MATCH_REGEX, "");
         // 【美化机制1】：全局替换多余空格：把2个以上的空格替换成1个
-        totalScript = totalScript.replaceAll("\\s{2,}", " ");
+        String totalScript = scriptBuilder.toString().replaceAll("\\s{2,}", " ");
         // 3.将完整sql脚本，以指定的【特殊结尾标记符】为分割条件,分割成独立的一句句执行脚本，封装到集合中
         String[] statementStrs = totalScript.split(DEFAULT_END_MARK_SEPARATOR);
         List<String> statementList = new ArrayList<>();
